@@ -5,6 +5,7 @@ using UnityEngine;
 public class Caja : MonoBehaviour
 {
 
+    public GameObject objetoAActivar;
 
     public LayerMask capaJugador;
     public LayerMask capaCaja;
@@ -12,17 +13,21 @@ public class Caja : MonoBehaviour
 
     private void OnCollisionStay(Collision collision)
     {
-        if (collision.gameObject.CompareTag("ToastBase") || collision.gameObject.CompareTag("Player"))
+        if (collision.gameObject.CompareTag("Caja"))
         {
             Debug.Log("Buenas");
+
+            objetoAActivar.GetComponent<PuertaScript>().Activar();
         }
 
     }
-    private void OnTriggerStay(Collider other)
+    private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Player")){ 
             Debug.Log("AAAAAAAAAAAA");
-            }
+            objetoAActivar.GetComponent<PuertaScript>().Activar();
+
+        }
     }
 
     private void OnTriggerExit(Collider other)
@@ -30,7 +35,9 @@ public class Caja : MonoBehaviour
         if (other.gameObject.CompareTag("Player"))
         {
             Debug.Log("EEEEE");
+            objetoAActivar.GetComponent<PuertaScript>().Desactivar();
         }
+
     }
     private void OnCollisionExit(Collision collision)
     {
@@ -38,9 +45,10 @@ public class Caja : MonoBehaviour
         {
 
             Debug.Log("chau");
+            objetoAActivar.GetComponent<PuertaScript>().Desactivar();
+
         }
 
     }
-    // Update is called once per frame
 
 }
