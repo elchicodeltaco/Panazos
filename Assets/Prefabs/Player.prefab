@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8182018472783826595}
   m_Layer: 6
   m_Name: toe.L_end
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -42,7 +42,7 @@ GameObject:
   - component: {fileID: 6161524270865121157}
   m_Layer: 6
   m_Name: foot.L
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -75,7 +75,7 @@ GameObject:
   - component: {fileID: 4497447267369830245}
   m_Layer: 6
   m_Name: lower_spine
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -255,7 +255,7 @@ GameObject:
   - component: {fileID: 5194399831915398047}
   m_Layer: 6
   m_Name: GroundChekcer (1)
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -286,7 +286,7 @@ GameObject:
   - component: {fileID: 6262109679815984335}
   m_Layer: 6
   m_Name: upper_spine
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -320,7 +320,7 @@ GameObject:
   - component: {fileID: 186551289527113607}
   m_Layer: 6
   m_Name: shoulder.R
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -355,7 +355,7 @@ GameObject:
   - component: {fileID: 4281671505076889827}
   m_Layer: 6
   m_Name: upper_arm.L
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -463,7 +463,7 @@ GameObject:
   - component: {fileID: 256109182044597038}
   m_Layer: 6
   m_Name: metarig
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -495,7 +495,7 @@ GameObject:
   - component: {fileID: 4675537755105912221}
   m_Layer: 6
   m_Name: hand.L_end
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -527,7 +527,7 @@ GameObject:
   - component: {fileID: 4195828421368112045}
   m_Layer: 6
   m_Name: heel.02.L
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -559,7 +559,7 @@ GameObject:
   - component: {fileID: 4614068708540978209}
   m_Layer: 6
   m_Name: hand.R_end
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -591,7 +591,7 @@ GameObject:
   - component: {fileID: 297781588406025117}
   m_Layer: 6
   m_Name: Model
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -702,7 +702,7 @@ GameObject:
   - component: {fileID: 1164571935810882075}
   m_Layer: 6
   m_Name: toe.R
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -736,7 +736,7 @@ GameObject:
   - component: {fileID: 4485242490754057536}
   m_Layer: 6
   m_Name: Toast
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -819,7 +819,7 @@ GameObject:
   - component: {fileID: 7557329330725647225}
   m_Layer: 6
   m_Name: Toast.001
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -900,7 +900,7 @@ GameObject:
   - component: {fileID: 3674149573300000165}
   m_Layer: 6
   m_Name: pelvis.L_end
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -931,7 +931,7 @@ GameObject:
   - component: {fileID: 8530639430424895335}
   m_Layer: 6
   m_Name: neckSpineUp
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -966,7 +966,7 @@ GameObject:
   - component: {fileID: 1027572695309533336}
   m_Layer: 6
   m_Name: shin.L
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1076,7 +1076,7 @@ GameObject:
   - component: {fileID: 3352970688075439680}
   m_Layer: 6
   m_Name: pelvis
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1143,7 +1143,7 @@ GameObject:
   - component: {fileID: 7411530104785782774}
   m_Layer: 6
   m_Name: Piece
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1226,7 +1226,7 @@ GameObject:
   - component: {fileID: 3768360292152228790}
   m_Layer: 6
   m_Name: Dust
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6044,7 +6044,7 @@ GameObject:
   - component: {fileID: 9010280051993725571}
   m_Layer: 6
   m_Name: forearm.L
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6154,7 +6154,7 @@ GameObject:
   - component: {fileID: 7185886178780195567}
   m_Layer: 6
   m_Name: Dust 1
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10972,7 +10972,7 @@ GameObject:
   - component: {fileID: 3380777769814723484}
   m_Layer: 6
   m_Name: upper_arm.R
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -11081,7 +11081,7 @@ GameObject:
   - component: {fileID: 8195114115670768477}
   m_Layer: 6
   m_Name: Toaster
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -11129,7 +11129,7 @@ GameObject:
   - component: {fileID: 5854447816208207668}
   m_Layer: 6
   m_Name: Head_end
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -11163,7 +11163,7 @@ GameObject:
   - component: {fileID: 4508336425879994671}
   m_Layer: 6
   m_Name: Head
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -11270,7 +11270,7 @@ GameObject:
   - component: {fileID: 2820969605502742847}
   m_Layer: 6
   m_Name: neckSpineDown
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -11304,7 +11304,7 @@ GameObject:
   - component: {fileID: 2292288561025993842}
   m_Layer: 6
   m_Name: PlayerIdle
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -11371,7 +11371,7 @@ GameObject:
   - component: {fileID: 8133206519727286803}
   m_Layer: 6
   m_Name: toe.L
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -11406,7 +11406,7 @@ GameObject:
   - component: {fileID: 6704169214219243384}
   m_Layer: 6
   m_Name: thigh.R
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -11517,7 +11517,7 @@ GameObject:
   - component: {fileID: 8267013765577932211}
   m_Layer: 6
   m_Name: thigh.L
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -11625,7 +11625,7 @@ GameObject:
   - component: {fileID: 1341945372937541430}
   m_Layer: 6
   m_Name: hand.L
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -11660,7 +11660,7 @@ GameObject:
   - component: {fileID: 6327049104756898858}
   m_Layer: 6
   m_Name: shin.R
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -11768,7 +11768,7 @@ GameObject:
   - component: {fileID: 9181109023554114906}
   m_Layer: 6
   m_Name: heel.02.R_end
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -11799,7 +11799,7 @@ GameObject:
   - component: {fileID: 8877673022230495059}
   m_Layer: 6
   m_Name: heel.02.L_end
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -11830,7 +11830,7 @@ GameObject:
   - component: {fileID: 1509213730851629107}
   m_Layer: 6
   m_Name: toe.R_end
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -11861,7 +11861,7 @@ GameObject:
   - component: {fileID: 975456744228988564}
   m_Layer: 6
   m_Name: pelvis.R
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -11893,7 +11893,7 @@ GameObject:
   - component: {fileID: 5964410061782594748}
   m_Layer: 6
   m_Name: pelvis.L
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -11928,7 +11928,7 @@ GameObject:
   - component: {fileID: 4980944922506041942}
   m_Layer: 6
   m_Name: forearm.R
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -12036,7 +12036,7 @@ GameObject:
   - component: {fileID: 8969247825561447576}
   m_Layer: 6
   m_Name: heel.02.R
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -12068,7 +12068,7 @@ GameObject:
   - component: {fileID: 714398836655271058}
   m_Layer: 6
   m_Name: shoulder.L
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -12103,7 +12103,7 @@ GameObject:
   - component: {fileID: 7818169978283184834}
   m_Layer: 6
   m_Name: mid_spine.001
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -12212,7 +12212,7 @@ GameObject:
   - component: {fileID: 8900011704472041370}
   m_Layer: 6
   m_Name: Toaster
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -12293,7 +12293,7 @@ GameObject:
   - component: {fileID: 1532985622888315417}
   m_Layer: 6
   m_Name: hand.R
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -12325,7 +12325,7 @@ GameObject:
   - component: {fileID: 7727244587344563427}
   m_Layer: 6
   m_Name: foot.R
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -12358,7 +12358,7 @@ GameObject:
   - component: {fileID: 8205468302425229019}
   m_Layer: 6
   m_Name: pelvis.R_end
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

@@ -12,11 +12,24 @@ public class Caja : MonoBehaviour
 
     private void OnCollisionStay(Collision collision)
     {
-        if (collision.gameObject.CompareTag("ToastBase") || collision.gameObject.GetComponentInParent<GameObject>().CompareTag("Player"))
+        if (collision.gameObject.CompareTag("ToastBase") || collision.gameObject.CompareTag("Player"))
         {
             Debug.Log("Buenas");
+        }
 
+    }
+    private void OnTriggerStay(Collider other)
+    {
+        if (other.gameObject.CompareTag("Player")){ 
+            Debug.Log("AAAAAAAAAAAA");
+            }
+    }
 
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.CompareTag("Player"))
+        {
+            Debug.Log("EEEEE");
         }
     }
     private void OnCollisionExit(Collision collision)
