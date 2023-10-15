@@ -13,10 +13,14 @@ public class CharacterMovement : MonoBehaviour
     public LayerMask groundMask;
     private bool isGrounded;
 
+    //movimiento general y suavizado de movimiento
+
     [Header("Rotation & Movement")]
     public float speed;
     private float smoothRotationTime = 0.1f;
     private float turnSmoothVel;
+
+    //Variables para mecanica de brinco
 
     [Header("Gravity")]
     public float jumpHeigth;
@@ -25,18 +29,25 @@ public class CharacterMovement : MonoBehaviour
 
     void Start()
     {
+
+        //obtenemos el controlador del personaje
+
         controller = GetComponent<CharacterController>();
     }
 
 
     void Update()
     {
+
+        //A través de una esfera checamos si el personaje no está en el piso o cayendo
         isGrounded = Physics.CheckSphere(groundCkeck.position, groundDistance, groundMask);
 
         if(isGrounded && fallingvelocity.y < 0)
         {
             fallingvelocity.y = -2;
         }
+
+
 
         float horizontal = Input.GetAxis("Horizontal");
         float vertical = Input.GetAxis("Vertical");

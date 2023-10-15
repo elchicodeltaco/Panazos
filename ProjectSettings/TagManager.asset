@@ -8,6 +8,8 @@ TagManager:
   - DamageCollider
   - Zombie
   - Blender
+  - Caja
+  - Pie
   layers:
   - Default
   - TransparentFX
@@ -17,7 +19,7 @@ TagManager:
   - UI
   - Ground
   - Player
-  - 
+  - Caja
   - 
   - 
   - 
