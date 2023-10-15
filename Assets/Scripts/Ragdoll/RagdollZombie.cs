@@ -8,8 +8,13 @@ public class RagdollZombie : RagdollEnabler
     [SerializeField] private MonoBehaviour[] scriptsToDesable;
     [SerializeField] private Collider[] collidersToDesable;
     [SerializeField] private Animator SonAnimator;
+    [SerializeField] private float timeToWakeUp;
     [SerializeField] private float forceToRag;
+    [SerializeField] private Transform rootBone;
     private bool ragdollActive;
+    private Quaternion rootBoneRotation;
+
+
     public override void DesactivarAnimaciones()
     {
         animator.SetBool("Attack", false);
@@ -28,19 +33,32 @@ public class RagdollZombie : RagdollEnabler
             collider.enabled = false;
         }
         GetComponent<NavMeshAgent>().enabled = false;
-        StartCoroutine(MuertoRutina());
+        StartCoroutine(RevivirRutina());
     }
-    IEnumerator MuertoRutina()
+
+    public override void HabilitarComponentes()
+    {
+        foreach (Collider collider in collidersToDesable)
+        {
+           collider.enabled = true;
+
+        }
+        foreach (MonoBehaviour script in scriptsToDesable)
+        {
+           script.enabled = true;
+        }
+        GetComponent<NavMeshAgent>().enabled = false;
+    }
+    IEnumerator RevivirRutina()
     {
         //Le decimos al game manager que murio un zombie
         //WaveManager.GetInstancia().ZombieAsesinadoMasacradoDestruidoXD();
-
-        yield return new WaitForSeconds(3);
-        //animator.enabled = true;
-        //DesactivarAnimaciones();
-        SonAnimator.SetBool("Muerto", true);
-        yield return new WaitForSeconds(1f);
-        Destroy(gameObject);
+        float rand = Random.Range(timeToWakeUp, timeToWakeUp + 5f);
+        yield return new WaitForSeconds(rand);
+        AlignPositionToRootBone();
+        EnableAnimator();
+        HabilitarComponentes();
+                
     }
 
     private void OnTriggerEnter(Collider other)
@@ -54,7 +72,7 @@ public class RagdollZombie : RagdollEnabler
             //print(force.magnitude);
             if (force.magnitude > forceToRag)
             {
-
+                rootBoneRotation = rootBone.rotation;
                 EnableRagdoll();
                 ragdollActive = true;
                 foreach (Rigidbody rb in rigidbodies)
@@ -68,6 +86,24 @@ public class RagdollZombie : RagdollEnabler
                 Destroy(gameObject);
             }
         }
+    }
+
+    public void AlignPositionToRootBone()
+    {
+        //se guarda la posicion original del hueso de referencia
+        Vector3 origialBonePos = rootBone.position;
+        //se lleva todo el ojeto a la posicion en la que aterrizo el hueso
+        transform.position = rootBone.position;
+        
+        //{Para cecar que este en el suelo
+        if(Physics.Raycast(transform.position, Vector3.down, out RaycastHit hit))
+        {
+            transform.position = new Vector3(transform.position.x, hit.point.y, transform.position.z);
+        }
+
+        //esto es para el espacio local de los huesos
+        rootBone.position = origialBonePos;
+        rootBone.rotation = rootBoneRotation;
     }
 
     private void OnCollisionEnter(Collision collision)

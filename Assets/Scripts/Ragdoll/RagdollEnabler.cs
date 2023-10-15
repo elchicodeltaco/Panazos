@@ -15,6 +15,7 @@ public class RagdollEnabler : MonoBehaviour
     {
         rigidbodies = ragdollRoot.GetComponentsInChildren<Rigidbody>();
         EnableAnimator();
+        AwakeMethod();
     }
 
 
@@ -46,6 +47,9 @@ public class RagdollEnabler : MonoBehaviour
     {
 
     }
+
+    public virtual void HabilitarComponentes() { } // override
+    public virtual void AwakeMethod() { } // override
 
 
     public void Destruir()

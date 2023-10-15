@@ -111,6 +111,9 @@ MonoBehaviour:
   - {fileID: 670868630431188066}
   - {fileID: 670868630431188067}
   SonAnimator: {fileID: 670868632002134169}
+  timeToWakeUp: 3
+  forceToRag: 0
+  rootBone: {fileID: 670868632079301666}
 --- !u!114 &670868630431188065
 MonoBehaviour:
   m_ObjectHideFlags: 0
