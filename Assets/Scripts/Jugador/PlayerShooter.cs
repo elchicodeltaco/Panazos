@@ -75,7 +75,7 @@ public class PlayerShooter : MonoBehaviour
         {
             toast.tag = "ToastBase";
             toast.transform.position = muzzle.position;
-            toast.transform.rotation = Quaternion.Euler(transform.rotation.x + rand[0], transform.rotation.y + rand[1], transform.rotation.z + rand[2]);
+            toast.transform.rotation = Quaternion.Euler(transform.rotation.x, transform.rotation.y, transform.rotation.z);
 
             toast.GetComponent<Rigidbody>().AddForce(transform.rotation * Vector3.forward * force * 100);
             

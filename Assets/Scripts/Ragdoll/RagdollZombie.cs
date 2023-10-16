@@ -95,7 +95,7 @@ public class RagdollZombie : RagdollEnabler
         //se lleva todo el ojeto a la posicion en la que aterrizo el hueso
         transform.position = rootBone.position;
         
-        //{Para cecar que este en el suelo
+        //{Para checar que este en el suelo
         if(Physics.Raycast(transform.position, Vector3.down, out RaycastHit hit))
         {
             transform.position = new Vector3(transform.position.x, hit.point.y, transform.position.z);
