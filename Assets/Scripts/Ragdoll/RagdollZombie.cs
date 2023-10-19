@@ -127,4 +127,8 @@ public class RagdollZombie : RagdollEnabler
 
         }
     }
+    public void destruirZombie()
+    {
+        Destroy(gameObject);
+    }
 }

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Blender : MonoBehaviour
 {
@@ -8,7 +9,10 @@ public class Blender : MonoBehaviour
     {
         if (other.CompareTag("Zombie"))
         {
-            Destroy(other.gameObject);
+            //Destroy(other.gameObject);
+            Debug.Log(other.name);
+            other.GetComponent<RagdollZombie>().destruirZombie();
+            
         }
     }
 }
