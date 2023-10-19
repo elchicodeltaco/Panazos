@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.WSA;
 
 [RequireComponent(typeof(ObjectPooling))]
 
@@ -114,7 +115,8 @@ public class PlayerShooter : MonoBehaviour
             grenade.transform.position = muzzle.position;
             grenade.transform.rotation = Quaternion.Euler(transform.rotation.x, transform.rotation.y, transform.rotation.z);
 
-            grenade.GetComponent<Rigidbody>().AddForce(Quaternion.Euler(0, 45, 0) * transform.rotation * Vector3.forward * GrenadeForce * 100);
+            grenade.GetComponent<Rigidbody>().AddForce(transform.rotation * Vector3.forward * force * 100);
+
 
 
 
