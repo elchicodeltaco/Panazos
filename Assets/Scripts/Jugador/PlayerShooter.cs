@@ -9,7 +9,9 @@ public class PlayerShooter : MonoBehaviour
     ObjectPooling pool;
     public Transform muzzle;
     public float force;
-    public int currentAmmo;
+    public float GrenadeForce;
+    public int currentAmmoTostadora;
+    public int currentAmmoGranada;
     [SerializeField] private ParticleSystem dustWorld;
     [SerializeField] private ParticleSystem dustLocal;
 
@@ -46,7 +48,7 @@ public class PlayerShooter : MonoBehaviour
         {
             //SFX
 
-            if (currentAmmo > 0)
+            if (currentAmmoTostadora > 0)
             {
                 transform.GetComponentInChildren<Animator>().SetBool("Attack", true);
                 dustWorld.Play();
@@ -54,16 +56,34 @@ public class PlayerShooter : MonoBehaviour
                 //AudioManager.instancia.PlaySFX(0);
             }
 
-            if (currentAmmo <= 0)
+            if (currentAmmoTostadora <= 0)
             {
                 dustLocal.Play();
             }
+        }
+        if (Input.GetButtonDown("Fire2"))
+        {
+            //SFX
+
+            /*if (currentAmmoTostadora > 0)
+            {
+                transform.GetComponentInChildren<Animator>().SetBool("Attack", true);
+                dustWorld.Play();
+                dustLocal.Play();
+                //AudioManager.instancia.PlaySFX(0);
+            }
+
+            if (currentAmmoTostadora <= 0)
+            {
+                dustLocal.Play();
+            }*/
+            ThrowGrenade();
         }
     }
 
     public void ShootToast()
     {
-        GameObject toast = pool.GetObjectFromPool();
+        GameObject toast = pool.GetObjectFromPool("Pan");
 
         float[] rand = new float[3];
         for (int i = 0; i < rand.Length; i++)
@@ -80,15 +100,32 @@ public class PlayerShooter : MonoBehaviour
             toast.GetComponent<Rigidbody>().AddForce(transform.rotation * Vector3.forward * force * 100);
             
 
-            currentAmmo--;
+            currentAmmoTostadora--;
             //GameManager.GetInstancia().UpdateAmmoOnScreen(currentAmmo);
         }
     }
+    public void ThrowGrenade()
+    {
+        GameObject grenade = pool.GetObjectFromPool("Granada");
 
+        if (grenade)
+        {
+            grenade.tag = "GranadaBase";
+            grenade.transform.position = muzzle.position;
+            grenade.transform.rotation = Quaternion.Euler(transform.rotation.x, transform.rotation.y, transform.rotation.z);
+
+            grenade.GetComponent<Rigidbody>().AddForce(Quaternion.Euler(0, 45, 0) * transform.rotation * Vector3.forward * GrenadeForce * 100);
+
+
+
+            currentAmmoGranada--;
+            //GameManager.GetInstancia().UpdateAmmoOnScreen(currentAmmo);
+        }
+    }
     public void AddMoreAmmo()
     {
         //int newAmmo = Random.Range(15, 51);
-        currentAmmo += 10;
+        currentAmmoTostadora += 10;
         //GameManager.GetInstancia().UpdateAmmoOnScreen(currentAmmo);
     }
 }

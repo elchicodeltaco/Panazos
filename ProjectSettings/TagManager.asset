@@ -12,6 +12,8 @@ TagManager:
   - Pie
   - Puerta
   - Interruptor
+  - Piso
+  - Granada
   layers:
   - Default
   - TransparentFX

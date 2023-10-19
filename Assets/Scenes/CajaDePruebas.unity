@@ -2271,7 +2271,7 @@ GameObject:
   - component: {fileID: 1351179824}
   m_Layer: 0
   m_Name: Piso_Cafeteria (1)
-  m_TagString: Untagged
+  m_TagString: Piso
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 8
@@ -2554,7 +2554,7 @@ GameObject:
   - component: {fileID: 1576838900}
   m_Layer: 0
   m_Name: Piso_Cafeteria (4)
-  m_TagString: Untagged
+  m_TagString: Piso
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 8
@@ -3461,7 +3461,7 @@ GameObject:
   - component: {fileID: 1899172570}
   m_Layer: 0
   m_Name: Piso_Cafeteria (3)
-  m_TagString: Untagged
+  m_TagString: Piso
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 8
@@ -3929,7 +3929,7 @@ GameObject:
   - component: {fileID: 2048448028}
   m_Layer: 0
   m_Name: Piso_Cafeteria (2)
-  m_TagString: Untagged
+  m_TagString: Piso
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 8
@@ -9241,6 +9241,14 @@ PrefabInstance:
       propertyPath: m_BaseObject
       value: 
       objectReference: {fileID: 5042819345228991087, guid: bdd874ac24b59584cafe845963a37430, type: 3}
+    - target: {fileID: 6818542039446081530, guid: 616385cb826fd10469d2f7be0c60d232, type: 3}
+      propertyPath: m_BaseObjectDos
+      value: 
+      objectReference: {fileID: 5858583796475733168, guid: 66ce605e6b5175043894404e3c514bf7, type: 3}
+    - target: {fileID: 6818542039446081530, guid: 616385cb826fd10469d2f7be0c60d232, type: 3}
+      propertyPath: m_AmountObjetoDos
+      value: 15
+      objectReference: {fileID: 0}
     - target: {fileID: 7012861941919959575, guid: 616385cb826fd10469d2f7be0c60d232, type: 3}
       propertyPath: m_Layer
       value: 7
@@ -9292,6 +9300,14 @@ PrefabInstance:
     - target: {fileID: 7919298007241419295, guid: 616385cb826fd10469d2f7be0c60d232, type: 3}
       propertyPath: currentAmmo
       value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 7919298007241419295, guid: 616385cb826fd10469d2f7be0c60d232, type: 3}
+      propertyPath: currentAmmoGranada
+      value: 79
+      objectReference: {fileID: 0}
+    - target: {fileID: 7919298007241419295, guid: 616385cb826fd10469d2f7be0c60d232, type: 3}
+      propertyPath: currentAmmoTostadora
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 7970831610452263507, guid: 616385cb826fd10469d2f7be0c60d232, type: 3}
       propertyPath: m_Layer
