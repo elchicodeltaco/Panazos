@@ -11,6 +11,7 @@ public class RagdollZombie : RagdollEnabler
     [SerializeField] private float timeToWakeUp;
     [SerializeField] private float forceToRag;
     [SerializeField] private Transform rootBone;
+    [SerializeField] private ParticleSystem MoridoParticula;
     private bool ragdollActive;
     private Quaternion rootBoneRotation;
 
@@ -53,7 +54,7 @@ public class RagdollZombie : RagdollEnabler
     {
         //Le decimos al game manager que murio un zombie
         //WaveManager.GetInstancia().ZombieAsesinadoMasacradoDestruidoXD();
-        float rand = Random.Range(timeToWakeUp, timeToWakeUp + 5f);
+        float rand = Random.Range(timeToWakeUp, timeToWakeUp + 2f);
         yield return new WaitForSeconds(rand);
         AlignPositionToRootBone();
         EnableAnimator();
@@ -129,6 +130,9 @@ public class RagdollZombie : RagdollEnabler
     }
     public void destruirZombie()
     {
+        ParticleSystem particulas = Instantiate(MoridoParticula);
+        particulas.transform.position = gameObject.transform.position;
+        particulas.Play();
         Destroy(gameObject);
     }
 }

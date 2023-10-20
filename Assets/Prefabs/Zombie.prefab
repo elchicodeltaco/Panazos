@@ -114,6 +114,7 @@ MonoBehaviour:
   timeToWakeUp: 3
   forceToRag: 0
   rootBone: {fileID: 670868632079301666}
+  MoridoParticula: {fileID: 4179395902104008575, guid: d2a5148315a276147963b476c11a9cbd, type: 3}
 --- !u!114 &670868630431188065
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -126,7 +127,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8cd9ec61950b5a14189107cc01e50545, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  alertRange: 7
+  alertRange: 11.17
   attackRange: 1.35
   playersMask:
     serializedVersion: 2
