@@ -110,11 +110,15 @@ public class PlayerShooter : MonoBehaviour
 
         if (grenade)
         {
-            grenade.tag = "GranadaBase";
-            grenade.transform.position = muzzle.position;
-            grenade.transform.rotation = Quaternion.Euler(transform.rotation.x, transform.rotation.y, transform.rotation.z);
+            float launchAngle = 45f; // Ángulo de inclinación en grados
+            float horizontalSpeed = GrenadeForce; // Velocidad horizontal
+            float verticalSpeed = horizontalSpeed * Mathf.Tan(launchAngle * Mathf.Deg2Rad); // Calcula la velocidad vertical
 
-            grenade.GetComponent<Rigidbody>().AddForce(transform.rotation * Vector3.forward * force * 100);
+            Vector3 launchDirection = transform.forward; // Dirección hacia adelante
+
+            // Aplica la fuerza con la velocidad horizontal y vertical
+            grenade.transform.position = muzzle.transform.position;
+            grenade.GetComponent<Rigidbody>().velocity = launchDirection * horizontalSpeed + Vector3.up * verticalSpeed;
 
 
 

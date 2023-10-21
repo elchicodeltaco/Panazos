@@ -7142,7 +7142,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7919298007241419295, guid: 616385cb826fd10469d2f7be0c60d232, type: 3}
       propertyPath: GrenadeForce
-      value: 0.39
+      value: 9.36
       objectReference: {fileID: 0}
     - target: {fileID: 7919298007241419295, guid: 616385cb826fd10469d2f7be0c60d232, type: 3}
       propertyPath: currentAmmoGranada
