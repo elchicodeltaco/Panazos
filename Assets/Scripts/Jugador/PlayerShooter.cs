@@ -9,6 +9,7 @@ public class PlayerShooter : MonoBehaviour
 {
     ObjectPooling pool;
     public Transform muzzle;
+    public Transform runningMuzzle;
     public float force;
     public float GrenadeForce;
     public int currentAmmoTostadora;
@@ -95,7 +96,14 @@ public class PlayerShooter : MonoBehaviour
         if (toast)
         {
             toast.tag = "ToastBase";
-            toast.transform.position = muzzle.position;
+            if (Input.GetButton("Fire3"))
+            {
+                toast.transform.position = runningMuzzle.position;
+            }
+            else
+            {
+                toast.transform.position = muzzle.position;
+            }
             toast.transform.rotation = Quaternion.Euler(transform.rotation.x, transform.rotation.y, transform.rotation.z);
 
             toast.GetComponent<Rigidbody>().AddForce(transform.rotation * Vector3.forward * force * 100);
