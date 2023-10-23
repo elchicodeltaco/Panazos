@@ -132,6 +132,9 @@ MonoBehaviour:
   playersMask:
     serializedVersion: 2
     m_Bits: 128
+  granadaMask:
+    serializedVersion: 2
+    m_Bits: 1024
   alertState: 0
   rotationSpeed: 1.9
   speed: 1

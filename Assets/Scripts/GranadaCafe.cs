@@ -32,13 +32,19 @@ public class GranadaCafe : MonoBehaviour
         {
             GetComponent<BoxCollider>().isTrigger = false;
         }*/
-
-
         if (collision.gameObject.CompareTag("Zombie") || collision.gameObject.CompareTag("Piso"))
         {
-            gameObject.tag = "Finish";
         }
         StartCoroutine(Deshabilitar());
 
+    }
+    private void OnCollisionStay(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Zombie") || collision.gameObject.CompareTag("Piso"))
+        {
+            gameObject.GetComponent<Rigidbody>().velocity = Vector3.zero;
+            gameObject.GetComponent<Rigidbody>().drag = 10000;
+
+        }
     }
 }

@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 5858583796475733175}
   - component: {fileID: -5386645972504058340}
   - component: {fileID: 1494214509872917690}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Sphere
   m_TagString: GranadaBase
   m_Icon: {fileID: 0}
