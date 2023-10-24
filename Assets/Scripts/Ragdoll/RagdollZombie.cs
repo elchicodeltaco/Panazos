@@ -62,6 +62,27 @@ public class RagdollZombie : RagdollEnabler
                 
     }
 
+    public void AddForceToBones(Vector3 force)
+    {
+        rootBoneRotation = rootBone.rotation;
+        EnableRagdoll();
+        ragdollActive = true;
+        foreach (Rigidbody rb in rigidbodies)
+        {
+            rb.AddForce(force * 55);
+        }
+    }
+    public void AddExplosionForceToBones(float force, Vector3 position,float radius)
+    {
+        rootBoneRotation = rootBone.rotation;
+        EnableRagdoll();
+        ragdollActive = true;
+        foreach (Rigidbody rb in rigidbodies)
+        {
+            rb.AddExplosionForce(force,position, radius);
+        }
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("ToastBase"))
@@ -73,13 +94,7 @@ public class RagdollZombie : RagdollEnabler
             //print(force.magnitude);
             if (force.magnitude > forceToRag)
             {
-                rootBoneRotation = rootBone.rotation;
-                EnableRagdoll();
-                ragdollActive = true;
-                foreach (Rigidbody rb in rigidbodies)
-                {
-                    rb.AddForce(force * 55);
-                }
+                AddForceToBones(force);
             }
 
             if (other.CompareTag("Blender") && ragdollActive)
