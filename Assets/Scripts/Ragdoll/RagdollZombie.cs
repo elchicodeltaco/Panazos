@@ -69,7 +69,8 @@ public class RagdollZombie : RagdollEnabler
         ragdollActive = true;
         foreach (Rigidbody rb in rigidbodies)
         {
-            rb.AddForce(force * 55);
+            Vector3 temp = new Vector3(force.x, force.y + 20, force.z);
+            rb.AddForce(temp * 25);
         }
     }
     public void AddExplosionForceToBones(float force, Vector3 position,float radius)
@@ -79,7 +80,7 @@ public class RagdollZombie : RagdollEnabler
         ragdollActive = true;
         foreach (Rigidbody rb in rigidbodies)
         {
-            rb.AddExplosionForce(force,position, radius);
+            rb.AddExplosionForce(force, position, radius);
         }
     }
 
@@ -139,6 +140,7 @@ public class RagdollZombie : RagdollEnabler
             EnableRagdoll();
             foreach (Rigidbody rb in rigidbodies)
             {
+                
                 rb.AddForce(force * 55);
             }
 

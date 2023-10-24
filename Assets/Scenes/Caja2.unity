@@ -176,7 +176,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 670868630431188070, guid: ae8a13762c088594b8d80c9615404960, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 5.7
+      value: -7.06
       objectReference: {fileID: 0}
     - target: {fileID: 670868630431188070, guid: ae8a13762c088594b8d80c9615404960, type: 3}
       propertyPath: m_LocalPosition.y
@@ -184,7 +184,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 670868630431188070, guid: ae8a13762c088594b8d80c9615404960, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -36.4
+      value: 1.94
       objectReference: {fileID: 0}
     - target: {fileID: 670868630431188070, guid: ae8a13762c088594b8d80c9615404960, type: 3}
       propertyPath: m_LocalRotation.w
@@ -217,6 +217,10 @@ PrefabInstance:
     - target: {fileID: 670868630431188077, guid: ae8a13762c088594b8d80c9615404960, type: 3}
       propertyPath: m_Name
       value: Zombie (8)
+      objectReference: {fileID: 0}
+    - target: {fileID: 670868630431188077, guid: ae8a13762c088594b8d80c9615404960, type: 3}
+      propertyPath: m_TagString
+      value: Zombie
       objectReference: {fileID: 0}
     - target: {fileID: 670868630542287244, guid: ae8a13762c088594b8d80c9615404960, type: 3}
       propertyPath: m_TagString
@@ -365,7 +369,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 670868630431188070, guid: ae8a13762c088594b8d80c9615404960, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 23.1
+      value: -1.91
       objectReference: {fileID: 0}
     - target: {fileID: 670868630431188070, guid: ae8a13762c088594b8d80c9615404960, type: 3}
       propertyPath: m_LocalPosition.y
@@ -373,7 +377,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 670868630431188070, guid: ae8a13762c088594b8d80c9615404960, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -31.6
+      value: -2.59
       objectReference: {fileID: 0}
     - target: {fileID: 670868630431188070, guid: ae8a13762c088594b8d80c9615404960, type: 3}
       propertyPath: m_LocalRotation.w
@@ -406,6 +410,10 @@ PrefabInstance:
     - target: {fileID: 670868630431188077, guid: ae8a13762c088594b8d80c9615404960, type: 3}
       propertyPath: m_Name
       value: Zombie (7)
+      objectReference: {fileID: 0}
+    - target: {fileID: 670868630431188077, guid: ae8a13762c088594b8d80c9615404960, type: 3}
+      propertyPath: m_TagString
+      value: Zombie
       objectReference: {fileID: 0}
     - target: {fileID: 670868630542287244, guid: ae8a13762c088594b8d80c9615404960, type: 3}
       propertyPath: m_TagString
@@ -779,7 +787,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!65 &275741357
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -972,8 +980,8 @@ MonoBehaviour:
   m_parent: {fileID: 2153523}
   m_maxEatenBread: 5
   m_delay: 3
-  m_explosionForce: 3
-  m_radius: 3
+  m_explosionForce: 400
+  m_radius: 4.2
 --- !u!1 &694762020
 GameObject:
   m_ObjectHideFlags: 0
@@ -1341,7 +1349,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5
+  orthographic size: 7.5
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -1490,7 +1498,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 670868630431188070, guid: ae8a13762c088594b8d80c9615404960, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 31.6
+      value: -2.24
       objectReference: {fileID: 0}
     - target: {fileID: 670868630431188070, guid: ae8a13762c088594b8d80c9615404960, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1498,7 +1506,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 670868630431188070, guid: ae8a13762c088594b8d80c9615404960, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -11.1
+      value: -0.39
       objectReference: {fileID: 0}
     - target: {fileID: 670868630431188070, guid: ae8a13762c088594b8d80c9615404960, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1531,6 +1539,10 @@ PrefabInstance:
     - target: {fileID: 670868630431188077, guid: ae8a13762c088594b8d80c9615404960, type: 3}
       propertyPath: m_Name
       value: Zombie (6)
+      objectReference: {fileID: 0}
+    - target: {fileID: 670868630431188077, guid: ae8a13762c088594b8d80c9615404960, type: 3}
+      propertyPath: m_TagString
+      value: Zombie
       objectReference: {fileID: 0}
     - target: {fileID: 670868630542287244, guid: ae8a13762c088594b8d80c9615404960, type: 3}
       propertyPath: m_TagString
@@ -2387,7 +2399,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 670868630431188070, guid: ae8a13762c088594b8d80c9615404960, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 13.1
+      value: -0.74
       objectReference: {fileID: 0}
     - target: {fileID: 670868630431188070, guid: ae8a13762c088594b8d80c9615404960, type: 3}
       propertyPath: m_LocalPosition.y
@@ -2395,7 +2407,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 670868630431188070, guid: ae8a13762c088594b8d80c9615404960, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -16.6
+      value: -1.8
       objectReference: {fileID: 0}
     - target: {fileID: 670868630431188070, guid: ae8a13762c088594b8d80c9615404960, type: 3}
       propertyPath: m_LocalRotation.w
@@ -2428,6 +2440,10 @@ PrefabInstance:
     - target: {fileID: 670868630431188077, guid: ae8a13762c088594b8d80c9615404960, type: 3}
       propertyPath: m_Name
       value: Zombie (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 670868630431188077, guid: ae8a13762c088594b8d80c9615404960, type: 3}
+      propertyPath: m_TagString
+      value: Zombie
       objectReference: {fileID: 0}
     - target: {fileID: 670868630542287244, guid: ae8a13762c088594b8d80c9615404960, type: 3}
       propertyPath: m_TagString
@@ -2576,7 +2592,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 670868630431188070, guid: ae8a13762c088594b8d80c9615404960, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 22.4
+      value: 3.5
       objectReference: {fileID: 0}
     - target: {fileID: 670868630431188070, guid: ae8a13762c088594b8d80c9615404960, type: 3}
       propertyPath: m_LocalPosition.y
@@ -2584,7 +2600,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 670868630431188070, guid: ae8a13762c088594b8d80c9615404960, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 3.9
+      value: 9.1
       objectReference: {fileID: 0}
     - target: {fileID: 670868630431188070, guid: ae8a13762c088594b8d80c9615404960, type: 3}
       propertyPath: m_LocalRotation.w
@@ -2617,6 +2633,10 @@ PrefabInstance:
     - target: {fileID: 670868630431188077, guid: ae8a13762c088594b8d80c9615404960, type: 3}
       propertyPath: m_Name
       value: Zombie (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 670868630431188077, guid: ae8a13762c088594b8d80c9615404960, type: 3}
+      propertyPath: m_TagString
+      value: Zombie
       objectReference: {fileID: 0}
     - target: {fileID: 670868630542287244, guid: ae8a13762c088594b8d80c9615404960, type: 3}
       propertyPath: m_TagString
@@ -3169,6 +3189,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Zombie (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 670868630431188077, guid: ae8a13762c088594b8d80c9615404960, type: 3}
+      propertyPath: m_TagString
+      value: Zombie
+      objectReference: {fileID: 0}
     - target: {fileID: 670868630542287244, guid: ae8a13762c088594b8d80c9615404960, type: 3}
       propertyPath: m_TagString
       value: Zombie
@@ -3353,6 +3377,10 @@ PrefabInstance:
     - target: {fileID: 670868630431188077, guid: ae8a13762c088594b8d80c9615404960, type: 3}
       propertyPath: m_Name
       value: Zombie (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 670868630431188077, guid: ae8a13762c088594b8d80c9615404960, type: 3}
+      propertyPath: m_TagString
+      value: Zombie
       objectReference: {fileID: 0}
     - target: {fileID: 670868630542287244, guid: ae8a13762c088594b8d80c9615404960, type: 3}
       propertyPath: m_TagString
@@ -3595,7 +3623,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 670868630431188070, guid: ae8a13762c088594b8d80c9615404960, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -6.8
+      value: -7.22
       objectReference: {fileID: 0}
     - target: {fileID: 670868630431188070, guid: ae8a13762c088594b8d80c9615404960, type: 3}
       propertyPath: m_LocalPosition.y
@@ -3603,7 +3631,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 670868630431188070, guid: ae8a13762c088594b8d80c9615404960, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -24.5
+      value: 5.09
       objectReference: {fileID: 0}
     - target: {fileID: 670868630431188070, guid: ae8a13762c088594b8d80c9615404960, type: 3}
       propertyPath: m_LocalRotation.w
@@ -3636,6 +3664,10 @@ PrefabInstance:
     - target: {fileID: 670868630431188077, guid: ae8a13762c088594b8d80c9615404960, type: 3}
       propertyPath: m_Name
       value: Zombie (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 670868630431188077, guid: ae8a13762c088594b8d80c9615404960, type: 3}
+      propertyPath: m_TagString
+      value: Zombie
       objectReference: {fileID: 0}
     - target: {fileID: 670868630542287244, guid: ae8a13762c088594b8d80c9615404960, type: 3}
       propertyPath: m_TagString
@@ -4713,7 +4745,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 670868630431188070, guid: ae8a13762c088594b8d80c9615404960, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 6.5266523
+      value: 1.05
       objectReference: {fileID: 0}
     - target: {fileID: 670868630431188070, guid: ae8a13762c088594b8d80c9615404960, type: 3}
       propertyPath: m_LocalPosition.y
@@ -4721,7 +4753,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 670868630431188070, guid: ae8a13762c088594b8d80c9615404960, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -2.0048184
+      value: 11.31
       objectReference: {fileID: 0}
     - target: {fileID: 670868630431188070, guid: ae8a13762c088594b8d80c9615404960, type: 3}
       propertyPath: m_LocalRotation.w
