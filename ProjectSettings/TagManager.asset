@@ -9,12 +9,12 @@ TagManager:
   - Zombie
   - Blender
   - Caja
-  - Pie
   - Puerta
   - Interruptor
   - Piso
   - Granada
   - GranadaBase
+  - ZombiePelvis
   layers:
   - Default
   - TransparentFX

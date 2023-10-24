@@ -11,9 +11,8 @@ public class Blender : MonoBehaviour
     {
         if (other.CompareTag("Zombie"))
         {
-            Particulas.gameObject.SetActive(true);
-            Particulas.Play();
-            
+            //Particulas.gameObject.SetActive(true);
+            //Particulas.Play();
         }
     }
 }

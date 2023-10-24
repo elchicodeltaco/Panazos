@@ -84,6 +84,7 @@ public class RagdollZombie : RagdollEnabler
 
             if (other.CompareTag("Blender") && ragdollActive)
             {
+
                 Destroy(gameObject);
             }
         }
@@ -130,6 +131,7 @@ public class RagdollZombie : RagdollEnabler
     }
     public void destruirZombie()
     {
+
         ParticleSystem particulas = Instantiate(MoridoParticula);
         particulas.transform.position = gameObject.transform.position;
         particulas.Play();

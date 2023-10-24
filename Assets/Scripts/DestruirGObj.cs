@@ -10,6 +10,10 @@ public class DestruirGObj : MonoBehaviour
         if (other.CompareTag("Blender"))
         {
             Destroy(parent);
+            parent.GetComponent<RemoveZombiesFromDoor>().RemoverDePuerta();
+            other.GetComponent<Blender>().Particulas.transform.position = this.transform.position;
+            other.GetComponent<Blender>().Particulas.gameObject.SetActive(true);
+            other.GetComponent<Blender>().Particulas.Play();
         }
     }
 }

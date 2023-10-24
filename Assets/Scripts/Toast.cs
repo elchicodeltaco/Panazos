@@ -50,7 +50,10 @@ public class Toast : MonoBehaviour
             gameObject.GetComponent<BoxCollider>().isTrigger = true;
             gameObject.GetComponent<Rigidbody>().useGravity = false;
             gameObject.GetComponent<Rigidbody>().velocity = Vector3.zero;
-            rb.constraints = RigidbodyConstraints.FreezeRotationX;
+            gameObject.transform.rotation = Quaternion.Euler(0,0,0);
+            rb.constraints = RigidbodyConstraints.FreezeRotation;
+            gameObject.transform.position = new Vector3(transform.position.x, transform.position.y - 0.2f, transform.position.z);
+
         }
         StartCoroutine(Deshabilitar());
 
