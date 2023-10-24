@@ -4640,6 +4640,8 @@ MonoBehaviour:
   destinoPuertaDos: {fileID: 1290319893}
   OriginalPosUno: {fileID: 87961971}
   OriginalPosDos: {fileID: 529059535}
+  WeNeedZombiesDead: 0
+  zombiesAMatar: 0
 --- !u!95 &908579504
 Animator:
   serializedVersion: 5
@@ -7362,7 +7364,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8276674913604927331, guid: 616385cb826fd10469d2f7be0c60d232, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 17.9
+      value: 5.4
       objectReference: {fileID: 0}
     - target: {fileID: 8276674913604927331, guid: 616385cb826fd10469d2f7be0c60d232, type: 3}
       propertyPath: m_LocalPosition.y
@@ -7370,7 +7372,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8276674913604927331, guid: 616385cb826fd10469d2f7be0c60d232, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -40.6
+      value: -42.61
       objectReference: {fileID: 0}
     - target: {fileID: 8276674913604927331, guid: 616385cb826fd10469d2f7be0c60d232, type: 3}
       propertyPath: m_LocalRotation.w
@@ -10692,6 +10694,8 @@ MonoBehaviour:
   destinoPuertaDos: {fileID: 2108903516}
   OriginalPosUno: {fileID: 182274581}
   OriginalPosDos: {fileID: 1438635961}
+  WeNeedZombiesDead: 0
+  zombiesAMatar: 0
 --- !u!95 &1934394113
 Animator:
   serializedVersion: 5

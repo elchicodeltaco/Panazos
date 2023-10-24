@@ -18,6 +18,9 @@ public class PuertaScript : MonoBehaviour
 
     private bool estaActivo = false;
 
+    public bool WeNeedZombiesDead = false;
+
+    public int zombiesAMatar;
     public void Activar()
     {
         estaActivo = true;
@@ -43,7 +46,13 @@ public class PuertaScript : MonoBehaviour
 
     private void Update()
     {
-        if (estaActivo)
+        if (WeNeedZombiesDead && zombiesAMatar== 0 && estaActivo)
+        {
+
+                destinoPuertas(destinoPuertaUno, destinoPuertaDos);
+            
+        }
+        if (WeNeedZombiesDead == false && estaActivo)
         {
             destinoPuertas(destinoPuertaUno, destinoPuertaDos);
         }
