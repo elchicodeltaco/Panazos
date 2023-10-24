@@ -5,12 +5,13 @@ using UnityEngine;
 public class Toast : MonoBehaviour
 {
     public ParticleSystem dust;
-
+    private Rigidbody rb;
+    private Vector3 originalPosition;
+    private Quaternion originalRotation;
     // Start is called before the first frame update
     void Start()
     {
-        gameObject.tag = "ToastBase";
-        
+        rb = gameObject.GetComponent<Rigidbody>();
     }
 
 
@@ -22,6 +23,11 @@ public class Toast : MonoBehaviour
         ParticleSystem particle = Instantiate(dust);
         particle.transform.position = transform.position;
         yield return new WaitForSeconds(0.5f);
+
+        gameObject.GetComponent<BoxCollider>().isTrigger = false;
+        gameObject.GetComponent<Rigidbody>().useGravity = true;
+        rb.constraints = RigidbodyConstraints.None;
+
         gameObject.SetActive(false);
     }
 
@@ -38,7 +44,16 @@ public class Toast : MonoBehaviour
         {
             gameObject.tag = "Finish";
         }
+
+        if (collision.gameObject.CompareTag("Piso"))
+        {
+            gameObject.GetComponent<BoxCollider>().isTrigger = true;
+            gameObject.GetComponent<Rigidbody>().useGravity = false;
+            gameObject.GetComponent<Rigidbody>().velocity = Vector3.zero;
+            rb.constraints = RigidbodyConstraints.FreezeRotationX;
+        }
         StartCoroutine(Deshabilitar());
 
     }
+
 }
