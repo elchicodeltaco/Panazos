@@ -7210,7 +7210,7 @@ PrefabInstance:
     - target: {fileID: 6818542039446081530, guid: 616385cb826fd10469d2f7be0c60d232, type: 3}
       propertyPath: m_BaseObjectDos
       value: 
-      objectReference: {fileID: 5858583796475733168, guid: 66ce605e6b5175043894404e3c514bf7, type: 3}
+      objectReference: {fileID: 3802348801814137948, guid: 10e3340139f0c9d478dc3c5e0087ead2, type: 3}
     - target: {fileID: 6818542039446081530, guid: 616385cb826fd10469d2f7be0c60d232, type: 3}
       propertyPath: m_AmountObjetoDos
       value: 12
@@ -7233,7 +7233,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7919298007241419295, guid: 616385cb826fd10469d2f7be0c60d232, type: 3}
       propertyPath: GrenadeForce
-      value: 1.87
+      value: 5.08
       objectReference: {fileID: 0}
     - target: {fileID: 7919298007241419295, guid: 616385cb826fd10469d2f7be0c60d232, type: 3}
       propertyPath: currentAmmoGranada
@@ -7273,7 +7273,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8276674913604927331, guid: 616385cb826fd10469d2f7be0c60d232, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -41.54
+      value: -19.42
       objectReference: {fileID: 0}
     - target: {fileID: 8276674913604927331, guid: 616385cb826fd10469d2f7be0c60d232, type: 3}
       propertyPath: m_LocalRotation.w

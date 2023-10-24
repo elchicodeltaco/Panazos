@@ -24,39 +24,18 @@ public class Toast : MonoBehaviour
         particle.transform.position = transform.position;
         yield return new WaitForSeconds(0.5f);
 
-        gameObject.GetComponent<BoxCollider>().isTrigger = false;
-        gameObject.GetComponent<Rigidbody>().useGravity = true;
-        rb.constraints = RigidbodyConstraints.None;
+
 
         gameObject.SetActive(false);
     }
 
     private void OnCollisionEnter(Collision collision)
     {
-        /*
-        if (collision.gameObject.CompareTag("Escenario"))
-        {
-            GetComponent<BoxCollider>().isTrigger = false;
-        }*/
-       
-
         if (collision.gameObject.CompareTag("Zombie"))
         {
             gameObject.tag = "Finish";
         }
-
-        if (collision.gameObject.CompareTag("Piso"))
-        {
-            gameObject.GetComponent<BoxCollider>().isTrigger = true;
-            gameObject.GetComponent<Rigidbody>().useGravity = false;
-            gameObject.GetComponent<Rigidbody>().velocity = Vector3.zero;
-            gameObject.transform.rotation = Quaternion.Euler(0,0,0);
-            rb.constraints = RigidbodyConstraints.FreezeRotation;
-            gameObject.transform.position = new Vector3(transform.position.x, transform.position.y - 0.2f, transform.position.z);
-
-        }
         StartCoroutine(Deshabilitar());
-
     }
 
 }
