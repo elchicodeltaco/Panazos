@@ -38,9 +38,9 @@ public class GlotonBehaviour : MonoBehaviour
             if (nearbyObj.CompareTag("Zombie"))
             {
 
-                RagdollZombie rz = nearbyObj.GetComponent<RagdollZombie>();
+                RagdollZombie rz = nearbyObj.GetComponentInParent<RagdollZombie>();
                 if (rz != null) print("iez");
-                rz.AddExplosionForceToBones(m_explosionForce, transform.position, m_radius);
+                rz.AddExplosionForceToBones(m_explosionForce, transform.parent.position, m_radius);
                 
             }
         }
@@ -51,11 +51,22 @@ public class GlotonBehaviour : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("ToastBase"))
         {
-            if(m_eatenBread < m_maxEatenBread)
+            if(m_eatenBread >= m_maxEatenBread)
+            {
+                Explote();
+            }
+            else
             {
                 m_parent.localScale += new Vector3(0.1f,0.1f,0.1f);
                 m_eatenBread++;
             }
         }
+    }
+
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.magenta;
+        Gizmos.DrawWireSphere(transform.position, m_radius);
     }
 }
