@@ -61,23 +61,16 @@ public class PlayerShooter : MonoBehaviour
                 dustLocal.Play();
             }
         }
-        if (Input.GetButtonDown("Fire2"))
+        if (Input.GetButton("Fire2"))
         {
-            //SFX
-
-            /*if (currentAmmoTostadora > 0)
-            {
-                transform.GetComponentInChildren<Animator>().SetBool("Attack", true);
-                dustWorld.Play();
-                dustLocal.Play();
-                //AudioManager.instancia.PlaySFX(0);
-            }
-
-            if (currentAmmoTostadora <= 0)
-            {
-                dustLocal.Play();
-            }*/
+            //GetComponent<ApuntadoGranada>().launchSpeed = new Vector3(transform.rotation.x, transform.rotation.y, transform.rotation.z).magnitude;
+            GetComponent<ApuntadoGranada>().estaActivo = true;
+        }
+        if (Input.GetButtonUp("Fire2"))
+        {
             ThrowGrenade();
+            GetComponent<ApuntadoGranada>().estaActivo = false;
+
         }
     }
 
