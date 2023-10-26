@@ -6,12 +6,14 @@ public class GranadaCafe : MonoBehaviour
 {
     // public ParticleSystem dust;
     [SerializeField] private float tiempoEspera;
+    [SerializeField] private ParticleSystem dustCoffee;
+    private ParticleSystem copiaDust;
 
     // Start is called before the first frame update
     void Start()
     {
         gameObject.tag = "Granada";
-
+        copiaDust = dustCoffee;
     }
 
 
@@ -26,7 +28,12 @@ public class GranadaCafe : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
+        if (collision.gameObject.CompareTag("Piso"))
+        {
+            copiaDust.transform.position = this.transform.position;
+            Instantiate(copiaDust);
+            
+        }
         StartCoroutine(Deshabilitar());
-
     }
 }

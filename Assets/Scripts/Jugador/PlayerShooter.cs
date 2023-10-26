@@ -112,6 +112,7 @@ public class PlayerShooter : MonoBehaviour
             // Aplica la fuerza con la velocidad horizontal y vertical
             grenade.transform.position = muzzle.transform.position;
             grenade.GetComponent<Rigidbody>().velocity = launchDirection * horizontalSpeed + Vector3.up * verticalSpeed;
+            Debug.Log(grenade.GetComponent<Rigidbody>().velocity);
 
             currentAmmoGranada--;
             //GameManager.GetInstancia().UpdateAmmoOnScreen(currentAmmo);
