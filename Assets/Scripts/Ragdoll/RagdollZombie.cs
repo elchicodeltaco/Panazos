@@ -11,6 +11,7 @@ public class RagdollZombie : RagdollEnabler
     [SerializeField] private float timeToWakeUp;
     [SerializeField] private float forceToRag;
     [SerializeField] private Transform rootBone;
+    [SerializeField] private ParticleSystem MoridoParticula;
     private bool ragdollActive;
     private Quaternion rootBoneRotation;
 
@@ -53,12 +54,34 @@ public class RagdollZombie : RagdollEnabler
     {
         //Le decimos al game manager que murio un zombie
         //WaveManager.GetInstancia().ZombieAsesinadoMasacradoDestruidoXD();
-        float rand = Random.Range(timeToWakeUp, timeToWakeUp + 5f);
+        float rand = Random.Range(timeToWakeUp, timeToWakeUp + 2f);
         yield return new WaitForSeconds(rand);
         AlignPositionToRootBone();
         EnableAnimator();
         HabilitarComponentes();
                 
+    }
+
+    public void AddForceToBones(Vector3 force)
+    {
+        rootBoneRotation = rootBone.rotation;
+        EnableRagdoll();
+        ragdollActive = true;
+        foreach (Rigidbody rb in rigidbodies)
+        {
+            Vector3 temp = new Vector3(force.x, force.y + 20, force.z);
+            rb.AddForce(temp * 25);
+        }
+    }
+    public void AddExplosionForceToBones(float force, Vector3 position,float radius)
+    {
+        rootBoneRotation = rootBone.rotation;
+        EnableRagdoll();
+        ragdollActive = true;
+        foreach (Rigidbody rb in rigidbodies)
+        {
+            rb.AddExplosionForce(force, position, radius);
+        }
     }
 
     private void OnTriggerEnter(Collider other)
@@ -72,17 +95,12 @@ public class RagdollZombie : RagdollEnabler
             //print(force.magnitude);
             if (force.magnitude > forceToRag)
             {
-                rootBoneRotation = rootBone.rotation;
-                EnableRagdoll();
-                ragdollActive = true;
-                foreach (Rigidbody rb in rigidbodies)
-                {
-                    rb.AddForce(force * 55);
-                }
+                AddForceToBones(force);
             }
 
             if (other.CompareTag("Blender") && ragdollActive)
             {
+
                 Destroy(gameObject);
             }
         }
@@ -122,9 +140,18 @@ public class RagdollZombie : RagdollEnabler
             EnableRagdoll();
             foreach (Rigidbody rb in rigidbodies)
             {
+                
                 rb.AddForce(force * 55);
             }
 
         }
+    }
+    public void destruirZombie()
+    {
+
+        ParticleSystem particulas = Instantiate(MoridoParticula);
+        particulas.transform.position = gameObject.transform.position;
+        particulas.Play();
+        Destroy(gameObject);
     }
 }

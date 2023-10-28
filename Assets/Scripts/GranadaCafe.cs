@@ -5,40 +5,35 @@ using UnityEngine;
 public class GranadaCafe : MonoBehaviour
 {
     // public ParticleSystem dust;
+    [SerializeField] private float tiempoEspera;
+    [SerializeField] private ParticleSystem dustCoffee;
+    private ParticleSystem copiaDust;
 
     // Start is called before the first frame update
     void Start()
     {
         gameObject.tag = "Granada";
-
+        copiaDust = dustCoffee;
     }
 
 
     IEnumerator Deshabilitar()
     {
-        yield return new WaitForSeconds(1.1f);
         gameObject.tag = "Finish";
-        yield return new WaitForSeconds(6.5f);
+        yield return new WaitForSeconds(tiempoEspera);
         //ParticleSystem particle = Instantiate(dust);
         //particle.transform.position = transform.position;
-        yield return new WaitForSeconds(0.5f);
         gameObject.SetActive(false);
     }
 
     private void OnCollisionEnter(Collision collision)
     {
-        /*
-        if (collision.gameObject.CompareTag("Escenario"))
+        if (collision.gameObject.CompareTag("Piso"))
         {
-            GetComponent<BoxCollider>().isTrigger = false;
-        }*/
-
-
-        if (collision.gameObject.CompareTag("Zombie") || collision.gameObject.CompareTag("Piso"))
-        {
-            gameObject.tag = "Finish";
+            copiaDust.transform.position = this.transform.position;
+            Instantiate(copiaDust);
+            
         }
         StartCoroutine(Deshabilitar());
-
     }
 }

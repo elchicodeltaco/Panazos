@@ -28,7 +28,7 @@ public class WaveManager : MonoBehaviour
     [SerializeField] private int currentWave;
     [SerializeField] private int TotalWaves;
     public Spawner spawn;
-
+    
     private int zombiesTotales;
     private int zombiesRestantes;
     private int zombiesCreados;
@@ -47,6 +47,7 @@ public class WaveManager : MonoBehaviour
         GameManager.GetInstancia().UpdateWaveOnScreen(currentWave);
         TotalWaves = HowMuchWaves.GetInstancia().num;
         TotalWaves++;
+        
     }
 
 
@@ -74,6 +75,7 @@ public class WaveManager : MonoBehaviour
             foreach(GameObject zombie in enemies)
             {
                 zombie.GetComponent<EnemyBehavior>().alertRange *= 3;
+
             }
         }
     }

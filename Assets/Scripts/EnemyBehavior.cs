@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -10,6 +11,8 @@ public class EnemyBehavior : MonoBehaviour
     public float alertRange;
     public float attackRange;
     [SerializeField] LayerMask playersMask;
+    [SerializeField] LayerMask granadaMask;
+
     public bool alertState;
     private bool attackState;
 
@@ -26,7 +29,7 @@ public class EnemyBehavior : MonoBehaviour
     public float interval;
 
     private Transform player;
-
+    private Transform granada;
     private bool StillChasing;
     private bool StillAttacking;
 
@@ -47,6 +50,28 @@ public class EnemyBehavior : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        float distMin = alertRange;
+        Collider[] granadas = Physics.OverlapSphere(transform.position, alertRange, granadaMask);
+        
+
+
+        if (granadas.Length > 0)
+        {
+            foreach (Collider granadaEnArreglo in granadas)
+            {
+                float distancia = Vector3.Distance(transform.position, granadaEnArreglo.transform.position);
+
+                // Comprueba si esta granada está más cerca que la que ya tenías almacenada.
+                if (distancia < distMin)
+                {
+                    distMin = distancia;
+                    granada = granadaEnArreglo.transform;
+                }
+            }
+        }
+        else granada = null;
+
+
         if (!alertState)
             StillChasing = false;
 
@@ -100,13 +125,25 @@ public class EnemyBehavior : MonoBehaviour
 
     public void Chase()
     {
-        Vector3 lookpos = player.position - transform.position;
-        lookpos.y = 0f;
-        Quaternion rotation = Quaternion.LookRotation(lookpos);
+        Vector3 lookPos;
+        if(granada != null)
+        {
+            lookPos = granada.position - transform.position;
+            agente.enabled = true;
+            agente.SetDestination(granada.transform.position);
+
+        }
+        else
+        {
+            lookPos = player.position - transform.position;
+            agente.enabled = true;
+            agente.SetDestination(player.transform.position);
+        }
+        lookPos.y = 0f;
+        Quaternion rotation = Quaternion.LookRotation(lookPos);
         //transform.rotation = Quaternion.RotateTowards(transform.rotation, rotation, rotationSpeed);
 
-        agente.enabled = true;
-        agente.SetDestination(player.transform.position);
+
 
         animator.SetBool("Walk", false);
         animator.SetBool("Run", true);
@@ -145,4 +182,6 @@ public class EnemyBehavior : MonoBehaviour
         Gizmos.DrawWireSphere(transform.position, alertRange);
         Gizmos.DrawWireSphere(transform.position, attackRange);
     }
+
+
 }

@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.WSA;
 
 [RequireComponent(typeof(ObjectPooling))]
 
@@ -63,23 +62,16 @@ public class PlayerShooter : MonoBehaviour
                 dustLocal.Play();
             }
         }
-        if (Input.GetButtonDown("Fire2"))
+        if (Input.GetButton("Fire2"))
         {
-            //SFX
-
-            /*if (currentAmmoTostadora > 0)
-            {
-                transform.GetComponentInChildren<Animator>().SetBool("Attack", true);
-                dustWorld.Play();
-                dustLocal.Play();
-                //AudioManager.instancia.PlaySFX(0);
-            }
-
-            if (currentAmmoTostadora <= 0)
-            {
-                dustLocal.Play();
-            }*/
+            //GetComponent<ApuntadoGranada>().launchSpeed = new Vector3(transform.rotation.x, transform.rotation.y, transform.rotation.z).magnitude;
+            GetComponent<ApuntadoGranada>().estaActivo = true;
+        }
+        if (Input.GetButtonUp("Fire2"))
+        {
             ThrowGrenade();
+            GetComponent<ApuntadoGranada>().estaActivo = false;
+
         }
     }
 
@@ -119,14 +111,16 @@ public class PlayerShooter : MonoBehaviour
 
         if (grenade)
         {
-            grenade.tag = "GranadaBase";
-            grenade.transform.position = muzzle.position;
-            grenade.transform.rotation = Quaternion.Euler(transform.rotation.x, transform.rotation.y, transform.rotation.z);
+            float launchAngle = 45f; // Ángulo de inclinación en grados
+            float horizontalSpeed = GrenadeForce; // Velocidad horizontal
+            float verticalSpeed = horizontalSpeed * Mathf.Tan(launchAngle * Mathf.Deg2Rad); // Calcula la velocidad vertical
 
-            grenade.GetComponent<Rigidbody>().AddForce(transform.rotation * Vector3.forward * force * 100);
+            Vector3 launchDirection = transform.forward; // Dirección hacia adelante
 
-
-
+            // Aplica la fuerza con la velocidad horizontal y vertical
+            grenade.transform.position = muzzle.transform.position;
+            grenade.GetComponent<Rigidbody>().velocity = launchDirection * horizontalSpeed + Vector3.up * verticalSpeed;
+            Debug.Log(grenade.GetComponent<Rigidbody>().velocity);
 
             currentAmmoGranada--;
             //GameManager.GetInstancia().UpdateAmmoOnScreen(currentAmmo);

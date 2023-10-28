@@ -9,11 +9,12 @@ TagManager:
   - Zombie
   - Blender
   - Caja
-  - Pie
   - Puerta
   - Interruptor
   - Piso
   - Granada
+  - GranadaBase
+  - ZombiePelvis
   layers:
   - Default
   - TransparentFX
@@ -24,9 +25,9 @@ TagManager:
   - Ground
   - Player
   - Caja
-  - NoPlayerCollide
-  - 
-  - 
+  - Zombie
+  - Grenade
+  - NoPlayerCollision
   - 
   - 
   - 
