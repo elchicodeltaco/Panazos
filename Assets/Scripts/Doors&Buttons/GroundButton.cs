@@ -9,6 +9,7 @@ public class GroundButton : MonoBehaviour
     [SerializeField] private LayerMask m_allowedLayers;
     [SerializeField] private UnityEvent m_activateTheDoors;
 
+
     private Renderer m_buttonMat;
     private Color m_normalColor;
     private bool m_eventSended;
