@@ -28,7 +28,7 @@ TagManager:
   - Zombie
   - Grenade
   - NoPlayerCollision
-  - 
+  - JustPlayerCollision
   - 
   - 
   - 

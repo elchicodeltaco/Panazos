@@ -97,7 +97,7 @@ public class PlayerShooter : MonoBehaviour
                 toast.transform.position = muzzle.position;
             }
             toast.transform.rotation = Quaternion.Euler(transform.rotation.x, transform.rotation.y, transform.rotation.z);
-
+            toast.GetComponent<Rigidbody>().velocity = Vector3.zero;
             toast.GetComponent<Rigidbody>().AddForce(transform.rotation * Vector3.forward * force * 100);
             
 

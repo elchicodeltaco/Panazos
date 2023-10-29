@@ -8,6 +8,8 @@ public class Toast : MonoBehaviour
     private Rigidbody rb;
     private Vector3 originalPosition;
     private Quaternion originalRotation;
+
+    private Coroutine m_deactiveCoroutine;
     // Start is called before the first frame update
     void Start()
     {
@@ -31,11 +33,26 @@ public class Toast : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
+
         if (collision.gameObject.CompareTag("Zombie"))
         {
             gameObject.tag = "Finish";
         }
-        StartCoroutine(Deshabilitar());
+        if (!collision.gameObject.CompareTag("Blender"))
+            m_deactiveCoroutine = StartCoroutine(Deshabilitar());
+        if (collision.gameObject.CompareTag("Blender"))
+        {
+            //StopCoroutine(m_deactiveCoroutine);
+            gameObject.SetActive(false);
+        }
     }
 
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Blender"))
+        {
+            //StopCoroutine(m_deactiveCoroutine);
+            gameObject.SetActive(false);
+        }
+    }
 }
