@@ -62,16 +62,16 @@ public class PlayerShooter : MonoBehaviour
                 dustLocal.Play();
             }
         }
-        if (Input.GetButton("Fire2"))
+        /*if (Input.GetButton("Fire2"))
         {
             //GetComponent<ApuntadoGranada>().launchSpeed = new Vector3(transform.rotation.x, transform.rotation.y, transform.rotation.z).magnitude;
             GetComponent<ApuntadoGranada>().estaActivo = true;
         }
+        */
         if (Input.GetButtonUp("Fire2"))
         {
             ThrowGrenade();
-            GetComponent<ApuntadoGranada>().estaActivo = false;
-
+            //GetComponent<ApuntadoGranada>().estaActivo = false;
         }
     }
 

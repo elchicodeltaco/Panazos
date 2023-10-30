@@ -93,7 +93,6 @@ public class DoubleDoor : MonoBehaviour
             timeElapsed += Time.deltaTime;
             yield return null;
         }
-        door.position = target;
     }
 
     public void ActivationFunction()
