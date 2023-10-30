@@ -38,15 +38,8 @@ public class RagdollEnabler : MonoBehaviour
         }
     }
 
-    public virtual void DesactivarAnimaciones() // override
-    {
-
-    }
-
-    public virtual void DeshabilitarComponentes() // override
-    {
-
-    }
+    public virtual void DesactivarAnimaciones() { }// override
+    public virtual void DeshabilitarComponentes() { }// override
 
     public virtual void HabilitarComponentes() { } // override
     public virtual void AwakeMethod() { } // override

@@ -10,6 +10,7 @@ public class RagdollZombie : RagdollEnabler
     [SerializeField] private Animator SonAnimator;
     [SerializeField] private float timeToWakeUp;
     [SerializeField] private float forceToRag;
+    [SerializeField] private float multiplicationForce;
     [SerializeField] private Transform rootBone;
     [SerializeField] private ParticleSystem MoridoParticula;
     private bool ragdollActive;
@@ -70,7 +71,7 @@ public class RagdollZombie : RagdollEnabler
         foreach (Rigidbody rb in rigidbodies)
         {
             Vector3 temp = new Vector3(force.x, force.y + 20, force.z);
-            rb.AddForce(temp * 25);
+            rb.AddForce(temp * multiplicationForce);
         }
     }
     public void AddExplosionForceToBones(float force, Vector3 position,float radius)
@@ -86,6 +87,8 @@ public class RagdollZombie : RagdollEnabler
 
     private void OnTriggerEnter(Collider other)
     {
+        
+
         if (other.CompareTag("ToastBase"))
         {
             //SFX.
@@ -141,7 +144,7 @@ public class RagdollZombie : RagdollEnabler
             foreach (Rigidbody rb in rigidbodies)
             {
                 
-                rb.AddForce(force * 55);
+                rb.AddForce(force * multiplicationForce);
             }
 
         }
@@ -153,5 +156,21 @@ public class RagdollZombie : RagdollEnabler
         particulas.transform.position = gameObject.transform.position;
         particulas.Play();
         Destroy(gameObject);
+    }
+    private void OnTriggerStay(Collider other)
+    {
+        if (other.CompareTag("ZombieScript"))
+        {
+            GetComponent<NavMeshAgent>().enabled = false;
+            GetComponent<EnemyBehavior>().enabled = false;
+        }
+    }
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag("ZombieScript"))
+        {
+            GetComponent<NavMeshAgent>().enabled = true;
+            GetComponent<EnemyBehavior>().enabled = true;
+        }
     }
 }

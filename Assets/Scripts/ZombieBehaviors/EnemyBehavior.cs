@@ -101,6 +101,15 @@ public class EnemyBehavior : MonoBehaviour
 
         if (alertState)
         {
+            /*
+            Vector3 direction = player.position - transform.position;
+            RaycastHit Hit;
+            Debug.DrawRay(transform.position, direction);
+            if (Physics.Raycast(transform.position, direction, out Hit, alertRange * 2))//, playersMask))
+            {
+                if(Hit.collider.gameObject.CompareTag("Player"))
+                print("theres the player");
+            }*/
             //SFX
             if(!StillChasing)
             {

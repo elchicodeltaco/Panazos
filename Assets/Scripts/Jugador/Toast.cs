@@ -9,7 +9,7 @@ public class Toast : MonoBehaviour
     private Vector3 originalPosition;
     private Quaternion originalRotation;
 
-    private Coroutine m_deactiveCoroutine;
+    private Coroutine m_deactiveCoroutine = null;
     // Start is called before the first frame update
     void Start()
     {
@@ -42,7 +42,8 @@ public class Toast : MonoBehaviour
             m_deactiveCoroutine = StartCoroutine(Deshabilitar());
         if (collision.gameObject.CompareTag("Blender"))
         {
-            //StopCoroutine(m_deactiveCoroutine);
+            if(m_deactiveCoroutine != null)
+            StopCoroutine(m_deactiveCoroutine);
             gameObject.SetActive(false);
         }
     }

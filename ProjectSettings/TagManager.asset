@@ -15,6 +15,7 @@ TagManager:
   - Granada
   - GranadaBase
   - ZombiePelvis
+  - ZombieScript
   layers:
   - Default
   - TransparentFX

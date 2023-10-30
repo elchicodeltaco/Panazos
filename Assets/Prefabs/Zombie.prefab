@@ -113,7 +113,8 @@ MonoBehaviour:
   - {fileID: 670868630431188067}
   SonAnimator: {fileID: 670868632002134169}
   timeToWakeUp: 3
-  forceToRag: 0
+  forceToRag: 10
+  multiplicationForce: 30
   rootBone: {fileID: 670868632079301666}
   MoridoParticula: {fileID: 4179395902104008575, guid: d2a5148315a276147963b476c11a9cbd, type: 3}
 --- !u!114 &670868630431188065
