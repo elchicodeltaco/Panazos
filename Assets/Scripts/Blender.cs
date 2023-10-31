@@ -6,14 +6,19 @@ using UnityEngine.Events;
 public class Blender : MonoBehaviour
 {
     public ParticleSystem Particulas;
+    [SerializeField] ZombieActivation m_Puerta;
 
+    private EnemyBehavior m_ultimoZombie = null;
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Zombie"))
+        if (other.CompareTag("ZombiePelvis"))
         {
-            
-            //Particulas.gameObject.SetActive(true);
-            //Particulas.Play();
+            EnemyBehavior otroombie = other.gameObject.GetComponentInParent<EnemyBehavior>();
+            if(otroombie != m_ultimoZombie)
+            {
+                m_ultimoZombie = otroombie;
+                m_Puerta.DeadZombie();
+            }
         }
     }
 }
