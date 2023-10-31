@@ -1173,21 +1173,7 @@ MonoBehaviour:
   - {fileID: 1987960941}
   - {fileID: 514273169}
   - {fileID: 330756244}
-  m_activateTheDoors:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 238229070}
-        m_TargetAssemblyTypeName: DoubleDoor, Assembly-CSharp
-        m_MethodName: ActivationFunction
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+  m_activateTheDoors: {fileID: 0}
 --- !u!1001 &255094808
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4606,21 +4592,7 @@ MonoBehaviour:
   m_allowedLayers:
     serializedVersion: 2
     m_Bits: 896
-  m_activateTheDoors:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 475803652}
-        m_TargetAssemblyTypeName: DoubleDoor, Assembly-CSharp
-        m_MethodName: ActivationFunction
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+  m_activateTheDoors: {fileID: 475803652}
 --- !u!1 &783172314
 GameObject:
   m_ObjectHideFlags: 0
@@ -6993,21 +6965,7 @@ MonoBehaviour:
   m_allowedLayers:
     serializedVersion: 2
     m_Bits: 896
-  m_activateTheDoors:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 545575742}
-        m_TargetAssemblyTypeName: DoubleDoor, Assembly-CSharp
-        m_MethodName: ActivationFunction
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+  m_activateTheDoors: {fileID: 545575742}
 --- !u!1 &1082813225
 GameObject:
   m_ObjectHideFlags: 0
@@ -8697,21 +8655,7 @@ MonoBehaviour:
   m_allowedLayers:
     serializedVersion: 2
     m_Bits: 896
-  m_activateTheDoors:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1750390685}
-        m_TargetAssemblyTypeName: DoubleDoor, Assembly-CSharp
-        m_MethodName: ActivationFunction
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+  m_activateTheDoors: {fileID: 1750390685}
 --- !u!1 &1392805848
 GameObject:
   m_ObjectHideFlags: 0
@@ -9397,33 +9341,7 @@ MonoBehaviour:
   - {fileID: 1384422441}
   - {fileID: 1217903981}
   - {fileID: 1664598951}
-  m_activateTheDoors:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1456176321}
-        m_TargetAssemblyTypeName: DoubleDoor, Assembly-CSharp
-        m_MethodName: ActivationFunction
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1456176322}
-        m_TargetAssemblyTypeName: ExplotarCosas, Assembly-CSharp
-        m_MethodName: ExpltotarFuncion
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+  m_activateTheDoors: {fileID: 0}
 --- !u!114 &1456176321
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -23822,15 +23740,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7236415962525535993, guid: 616385cb826fd10469d2f7be0c60d232, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 126.3
+      value: 17.2
       objectReference: {fileID: 0}
     - target: {fileID: 7236415962525535993, guid: 616385cb826fd10469d2f7be0c60d232, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2.02
+      value: 0.43
       objectReference: {fileID: 0}
     - target: {fileID: 7236415962525535993, guid: 616385cb826fd10469d2f7be0c60d232, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -71.14
+      value: -0.9
       objectReference: {fileID: 0}
     - target: {fileID: 7236415962525535993, guid: 616385cb826fd10469d2f7be0c60d232, type: 3}
       propertyPath: m_LocalRotation.w

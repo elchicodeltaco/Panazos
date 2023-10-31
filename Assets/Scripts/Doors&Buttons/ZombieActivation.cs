@@ -9,28 +9,23 @@ public class ZombieActivation : ActivateDoor
 {
     [SerializeField] private int ZombiesToKill;
     [SerializeField] private TextMeshPro m_zombieTexto;
-    private bool active;
 
     private void Start()
     {
-        active = true;
         m_zombieTexto.text = ZombiesToKill.ToString();
     }
     public void DeadZombie()
     {
-        if (active)
+        if(ZombiesToKill>0)
         {
             ZombiesToKill--;
-            if (ZombiesToKill > 0)
-            {
-                m_zombieTexto.text = ZombiesToKill.ToString();
-            }
-            else
-            {
-                m_zombieTexto.text = ZombiesToKill.ToString();
-                active = false;
-                Activate();
-            }
+            m_zombieTexto.text = ZombiesToKill.ToString();
+        }
+        else
+        {
+            m_zombieTexto.text = ZombiesToKill.ToString();
+            Activate();
+
         }
     }
 }
