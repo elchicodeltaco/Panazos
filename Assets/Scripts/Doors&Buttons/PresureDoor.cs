@@ -10,7 +10,7 @@ public class PresureDoor : MonoBehaviour
 
     private bool m_eventSended;
 
-    [SerializeField] private UnityEvent m_activateTheDoors;
+    [SerializeField] private DoubleDoor m_activateTheDoors;
 
     // Start is called before the first frame update
     void Start()
@@ -34,7 +34,7 @@ public class PresureDoor : MonoBehaviour
         {
             if (!m_eventSended)
             {
-                m_activateTheDoors.Invoke();
+                m_activateTheDoors.ActivationFunction();
                 m_eventSended = true;
             }
         }
@@ -42,7 +42,7 @@ public class PresureDoor : MonoBehaviour
         {
             if (m_eventSended)
             {
-                m_activateTheDoors.Invoke();
+                m_activateTheDoors.ActivationFunction();
                 m_eventSended = false;
             }
         }

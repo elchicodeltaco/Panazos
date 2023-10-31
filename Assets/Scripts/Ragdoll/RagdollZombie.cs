@@ -139,7 +139,7 @@ public class RagdollZombie : RagdollEnabler
             //AudioManager.instancia.PlaySFX(9);
 
             Vector3 force = collision.gameObject.GetComponent<Rigidbody>().velocity;
-            print(force.magnitude);
+            //print(force.magnitude);
             EnableRagdoll();
             foreach (Rigidbody rb in rigidbodies)
             {

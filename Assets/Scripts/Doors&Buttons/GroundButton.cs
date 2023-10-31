@@ -7,7 +7,7 @@ public class GroundButton : MonoBehaviour
     [SerializeField] private Color m_activeColor;
     [SerializeField] private float m_radius;
     [SerializeField] private LayerMask m_allowedLayers;
-    [SerializeField] private UnityEvent m_activateTheDoors;
+    [SerializeField] private DoubleDoor m_activateTheDoors;
 
 
     private Renderer m_buttonMat;
@@ -31,7 +31,8 @@ public class GroundButton : MonoBehaviour
             m_buttonMat.material.SetColor("_Color", m_activeColor);
             if (!m_eventSended)
             {
-                m_activateTheDoors.Invoke();
+                m_activateTheDoors.ActivationFunction();
+                print(m_eventSended);
                 m_eventSended = true;
             }
         }
@@ -39,7 +40,7 @@ public class GroundButton : MonoBehaviour
         {
             if (m_eventSended)
             {
-                m_activateTheDoors.Invoke();
+                m_activateTheDoors.ActivationFunction();
                 m_eventSended = false;
             }
             m_buttonMat.material.SetColor("_Color", m_normalColor);

@@ -16,7 +16,7 @@ public class DoubleDoor : MonoBehaviour
     [SerializeField] private float m_lerpDuration;
     [SerializeField] private AnimationCurve m_lerpCurve;
 
-    private bool m_isActive = false;
+    private bool m_isActive;
 
     private Coroutine m_doorOneCor;
     private Coroutine m_doorTwoCor;
@@ -38,6 +38,7 @@ public class DoubleDoor : MonoBehaviour
 
         m_doorOneCor = null;
         m_doorTwoCor = null;
+        m_isActive = false;
     }
 
     private void MoveDoors()
@@ -61,7 +62,7 @@ public class DoubleDoor : MonoBehaviour
     {
         if (m_isActive)
         {
-            
+            print("Update");
             if (m_doorOneCor == null && m_doorTwoCor == null)
             {
                 MoveDoors();
@@ -98,12 +99,15 @@ public class DoubleDoor : MonoBehaviour
     public void ActivationFunction()
     {
         StartCoroutine(ActivationCoroutine());
+        print("llego aqui");
     }
 
     IEnumerator ActivationCoroutine()
     {
         m_isActive = true;
+        yield return null;
         yield return new WaitForEndOfFrame();
+        yield return null;
         m_isActive = false;
         
     }
