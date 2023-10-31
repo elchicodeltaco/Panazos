@@ -61,7 +61,7 @@ public class DoubleDoor : MonoBehaviour
     {
         if (m_isActive)
         {
-            
+            print("aaaa");
             if (m_doorOneCor == null && m_doorTwoCor == null)
             {
                 MoveDoors();
@@ -81,6 +81,7 @@ public class DoubleDoor : MonoBehaviour
             m_doorOneOriginalPos = temp1;
             m_doorTwoOriginalPos = temp2;
             SwitchTarget();
+            //m_isActive = false;
         }
     }
 
@@ -97,7 +98,9 @@ public class DoubleDoor : MonoBehaviour
 
     public void ActivationFunction()
     {
+        
         StartCoroutine(ActivationCoroutine());
+        //m_isActive = true;
     }
 
     IEnumerator ActivationCoroutine()
