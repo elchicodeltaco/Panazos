@@ -11,6 +11,7 @@ public class Blender : MonoBehaviour
     private EnemyBehavior m_ultimoZombie = null;
     private void OnTriggerEnter(Collider other)
     {
+        if(m_Puerta != null)
         if (other.CompareTag("ZombiePelvis"))
         {
             EnemyBehavior otroombie = other.gameObject.GetComponentInParent<EnemyBehavior>();

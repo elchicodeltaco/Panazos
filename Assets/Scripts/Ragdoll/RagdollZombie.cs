@@ -133,6 +133,7 @@ public class RagdollZombie : RagdollEnabler
         {
             EnableRagdoll();
         }*/
+        /*
         if (collision.gameObject.CompareTag("ToastBase"))
         {
             //SFX.
@@ -147,7 +148,7 @@ public class RagdollZombie : RagdollEnabler
                 rb.AddForce(force * multiplicationForce);
             }
 
-        }
+        }*/
     }
     public void destruirZombie()
     {
