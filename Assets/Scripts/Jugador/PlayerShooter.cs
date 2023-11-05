@@ -49,13 +49,13 @@ public class PlayerShooter : MonoBehaviour
         {
             //SFX
 
-            if (currentAmmoTostadora > 0)
-            {
+            //if (currentAmmoTostadora > 0)
+            //{
                 transform.GetComponentInChildren<Animator>().SetBool("Attack", true);
                 dustWorld.Play();
                 dustLocal.Play();
                 //AudioManager.instancia.PlaySFX(0);
-            }
+            //}
 
             if (currentAmmoTostadora <= 0)
             {
@@ -88,15 +88,19 @@ public class PlayerShooter : MonoBehaviour
         if (toast)
         {
             toast.tag = "ToastBase";
-            if (Input.GetButton("Fire3"))
-            {
-                toast.transform.position = runningMuzzle.position;
-            }
-            else
-            {
+            //if (Input.GetButton("Fire3"))
+            //{
+            //toast.transform.position = runningMuzzle.position;
+            //toast.transform.rotation = Quaternion.Euler(runningMuzzle.rotation.x, runningMuzzle.rotation.y, runningMuzzle.rotation.z);
+            //}
+            //else
+            //{
+            Quaternion temp = transform.rotation;
+            print(temp.eulerAngles.y);
                 toast.transform.position = muzzle.position;
-            }
-            toast.transform.rotation = Quaternion.Euler(transform.rotation.x, transform.rotation.y, transform.rotation.z);
+                toast.transform.rotation = Quaternion.Euler(0,temp.eulerAngles.y+180f,90);
+                //toast.transform.rotation = Quaternion.Euler(muzzle.rotation.x, transform.rotation.y, muzzle.rotation.z);
+            //}
             toast.GetComponent<Rigidbody>().velocity = Vector3.zero;
             toast.GetComponent<Rigidbody>().AddForce(transform.rotation * Vector3.forward * force * 100);
             

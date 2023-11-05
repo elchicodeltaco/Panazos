@@ -87,8 +87,6 @@ public class RagdollZombie : RagdollEnabler
 
     private void OnTriggerEnter(Collider other)
     {
-        
-
         if (other.CompareTag("ToastBase"))
         {
             //SFX.
