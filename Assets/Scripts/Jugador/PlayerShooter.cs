@@ -54,7 +54,7 @@ public class PlayerShooter : MonoBehaviour
                 transform.GetComponentInChildren<Animator>().SetBool("Attack", true);
                 dustWorld.Play();
                 dustLocal.Play();
-                GetComponent<PlayerDamage>().GetDamage(30);
+                GetComponent<PlayerDamage>().GetDamage(5);
                 //AudioManager.instancia.PlaySFX(0);
             //}
 

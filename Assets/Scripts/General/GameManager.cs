@@ -29,12 +29,16 @@ public class GameManager : MonoBehaviour
     [SerializeField] private float smoothDecreaseDuration = 0.5f;
     public TextMeshProUGUI ammoText;
     public TMP_Text healthText;
+    [SerializeField] private Image heartIcon;
     public TextMeshProUGUI ZombiesRestantesText;
     public TextMeshProUGUI currentWaveText;
     public TextMeshProUGUI NumeroDeOleadaAnimada;
     [SerializeField] private Animator LetrasAnimadas;
     [SerializeField] private Animator FadeInBlack;
     public GameObject FinalFade;
+
+    [SerializeField] private Color originalHealthColor;
+    [SerializeField] private Color damageHealthColor;
 
     [Header("Gameplay")]
     [SerializeField] private GameObject Spawners;
@@ -126,6 +130,9 @@ public void CambiarDeEstadoEnJuego(EstadosDeJuego estado)
 
     public IEnumerator SmoothDecreaseHealth(float damage, float health)
     {
+        healthText.color = damageHealthColor;
+        heartIcon.color = damageHealthColor;
+
         float damagePertick = damage / smoothDecreaseDuration;
         float elapsedTime = 0f;
         float healthInicial = health;
@@ -145,8 +152,13 @@ public void CambiarDeEstadoEnJuego(EstadosDeJuego estado)
             }
             yield return null;
         }
+
         healthInicial -= damage;
         updateHealthText(healthInicial);
+        healthText.color = originalHealthColor;
+        heartIcon.color = originalHealthColor;
+
+        Debug.Log("Saramambiche");
     }
     void updateHealthText(float health)
     {
