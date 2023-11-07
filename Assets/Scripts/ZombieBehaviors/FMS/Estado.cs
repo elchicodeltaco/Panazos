@@ -12,7 +12,6 @@ public abstract class Estado
     protected float tiempoTranscurrido;
 
     protected bool accionConcluida;
-    protected bool active;
     public Estado(MaquinaEstados fsm, Animator animator)
     {
         this.fsm = fsm;
@@ -30,11 +29,7 @@ public abstract class Estado
     }
 
     public abstract void UpdateEstado();
-    public virtual void Exit()
-    {
-        accionConcluida = true;
-    }
-    
+    public abstract void Exit();
 
 
     protected void Esperar(float duracion)
@@ -44,7 +39,6 @@ public abstract class Estado
         {
             tiempoTranscurrido = 0f;
             accionConcluida = true;
-            active = true;
         }
 
     }

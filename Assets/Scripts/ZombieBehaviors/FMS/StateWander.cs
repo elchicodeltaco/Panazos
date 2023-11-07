@@ -9,7 +9,6 @@ public class StateWander : Estado
     private float lastMove;
     public float interval = 2;
     private bool destinationReached = false;
-    
 
     //Se llama al constructor de la clase base
     public StateWander(MaquinaEstados fsm, Animator animator, ZombieBase zombie) : base(fsm, animator)
@@ -19,48 +18,44 @@ public class StateWander : Estado
     public override void Enter()
     {
         base.Enter();
-        Debug.LogWarning("deambulando");
+        Debug.Log("deambulando");
         animator.SetBool("Walk", true);
         animator.SetBool("Run", false);
-        Esperar(2f);
     }
     public override void UpdateEstado()
     {
-        //if (active)
-        //{
-            if (m_zombie._getAlertState)
+        if(m_zombie._getAlertState)
+        {
+            //m_zombie.m_agent.Stop();
+            fsm.CambiarDeEstado(m_zombie.estadoChase);
+        }
+        if (Time.timeSinceLevelLoad >= lastMove + interval)
+        {
+            destinationReached = false;
+            interval = Random.Range(2, 8);
+        }
+        //if (m_zombie.m_agent.remainingDistance <= m_zombie.m_agent.stoppingDistance) //done with path
+        if (!destinationReached)
+        {
+            Vector3 point;
+            if (RandomPoint(m_zombie.transform.position, m_zombie.m_wanderRange, out point)) //pass in our centre point and radius of area
             {
-                //m_zombie.m_agent.Stop();
-                fsm.CambiarDeEstado(m_zombie.estadoChase);
+                Debug.DrawRay(point, Vector3.up, Color.blue, 1.0f); //so you can see with gizmos
+                destinationReached = m_zombie.m_agent.SetDestination(point);
             }
-            if (Time.timeSinceLevelLoad >= lastMove + interval)
-            {
-                destinationReached = false;
-                interval = Random.Range(2, 8);
-            }
-            //if (m_zombie.m_agent.remainingDistance <= m_zombie.m_agent.stoppingDistance) //done with path
-            if (!destinationReached)
-            {
-                Vector3 point;
-                if (RandomPoint(m_zombie.transform.position, m_zombie.m_wanderRange, out point)) //pass in our centre point and radius of area
-                {
-                    Debug.DrawRay(point, Vector3.up, Color.blue, 1.0f); //so you can see with gizmos
-                    destinationReached = m_zombie.m_agent.SetDestination(point);
-                }
-                lastMove = Time.timeSinceLevelLoad;
-            }
-            m_zombie.m_agent.speed = 1;
-            m_zombie.m_agent.acceleration = 4;
-
-            //Debug.Log("mag " + m_zombie.m_agent.velocity.magnitude);
-        //}
+            lastMove = Time.timeSinceLevelLoad;
+        }
+        m_zombie.m_agent.speed = 1;
+        m_zombie.m_agent.acceleration = 4;
+        
+        Debug.Log("mag " + m_zombie.m_agent.velocity.magnitude);
+        
     }
 
     public override void Exit()
     {
         Debug.Log("exit deambular");
         animator.SetBool("Walk", false);
-        active = false;
     }
 
     private bool RandomPoint(Vector3 center, float range, out Vector3 result)
@@ -79,5 +74,4 @@ public class StateWander : Estado
         result = Vector3.zero;
         return false;
     }
-
 }

@@ -13,23 +13,22 @@ public class StateAttack : Estado
     public override void Enter()
     {
         base.Enter();
-        Debug.LogWarning("Atacando");
+        Debug.Log("Atacando");
         animator.SetBool("Attack", true);
         animator.SetBool("Run", false);
-
+        animator.SetBool("Walk", false);
     }
     public override void UpdateEstado()
     {
         //checar la esfera
-        if (!fsm.mono.GetComponent<ZombieBase>()._getAttackState)
+        if (!fsm.mono.GetComponent<ZombieBase>()._getAlertState)
         {
-            fsm.CambiarDeEstado(m_zombie.estadoChase);
+            fsm.CambiarDeEstado(m_zombie.estadoWander);
         }
     }
     public override void Exit()
     {
-        Debug.Log("exit atacar");
+        Debug.Log("exit perseguir");
         animator.SetBool("Run", false);
-        animator.SetBool("Attack", false);
     }
 }
