@@ -48,6 +48,7 @@ public class ZombieBase : MonoBehaviour
         //Crear estados que puede tener el zombie
         estadoWander = new StateWander(maquinaEstados, animator, this);
         estadoChase = new StateChase(maquinaEstados, animator, this);
+        estadoAttack = new StateAttack(maquinaEstados, animator, this);
 
         //Se empieza a ejecutar la FMS
         maquinaEstados.Iniciar(estadoWander);
