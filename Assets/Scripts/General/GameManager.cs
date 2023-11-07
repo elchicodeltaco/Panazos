@@ -155,6 +155,7 @@ public void CambiarDeEstadoEnJuego(EstadosDeJuego estado)
 
         healthInicial -= damage;
         updateHealthText(healthInicial);
+
         healthText.color = originalHealthColor;
         heartIcon.color = originalHealthColor;
 
