@@ -28,8 +28,11 @@ public class GameManager : MonoBehaviour
     [Header("UI Stuff")]
     [SerializeField] private float smoothDecreaseDuration = 0.5f;
     public TextMeshProUGUI ammoText;
-    public TMP_Text healthText;
-    [SerializeField] private Image heartIcon;
+
+    private int TotalHealth;
+    [SerializeField] private Image Life;
+
+
     public TextMeshProUGUI ZombiesRestantesText;
     public TextMeshProUGUI currentWaveText;
     public TextMeshProUGUI NumeroDeOleadaAnimada;
@@ -37,8 +40,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private Animator FadeInBlack;
     public GameObject FinalFade;
 
-    [SerializeField] private Color originalHealthColor;
-    [SerializeField] private Color damageHealthColor;
+    private float scaleCanvas;
 
     [Header("Gameplay")]
     [SerializeField] private GameObject Spawners;
@@ -57,10 +59,11 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        healthText.text = GameObject.Find("Player").GetComponent<PlayerDamage>().ToalHealth.ToString();
+        TotalHealth = GameObject.Find("Player").GetComponent<PlayerDamage>().ToalHealth;
 
         Application.targetFrameRate = 60;
         Cursor.visible = false;
+        GettingDamageUI();
         /*if(HowMuchWaves.GetInstancia().Toaster) 
         foreach(GameObject obj in ThingsToDestroy)
         {
@@ -114,55 +117,45 @@ public void CambiarDeEstadoEnJuego(EstadosDeJuego estado)
         LetrasAnimadas.SetTrigger("mostrar");
     }
 
-    /*public void UpdateHeathOnScreen(int healt)
+    public void GettingDamageUI()
     {
-        healthText.text = healt.ToString();
-        if (healt <= 0)
+        TotalHealth = GameObject.Find("Player").GetComponent<PlayerDamage>().CurrentHealth;
+        Vector3 escala = new Vector3();
+
+        switch (TotalHealth)
         {
-            StartCoroutine(GameOver());
+            case 0:
+                if(TotalHealth == 0)
+                {
+                    escala = new Vector3(25, 14, 1);
+                }
+                break;
+
+            case 1:
+                if (TotalHealth == 1)
+                {
+                    escala = new Vector3(30, 21, 1);
+                }
+                break;
+            case 2:
+                if (TotalHealth == 2)
+                {
+                    escala = new Vector3(35, 29, 1);
+                }
+                break;
+            case 3:
+                if (TotalHealth == 3)
+                {
+                    escala = new Vector3(100, 100, 1);
+
+                }
+                break;
         }
-    }*/
+        Life.rectTransform.localScale = Vector3.Lerp(Life.rectTransform.localScale, escala, 2.0f * Time.deltaTime);
 
-    public void UpdateAmmoOnScreen(int ammo)
-    {
-        ammoText.text = ammo.ToString();
+
+
     }
 
-    public IEnumerator SmoothDecreaseHealth(float damage, float health)
-    {
-        healthText.color = damageHealthColor;
-        heartIcon.color = damageHealthColor;
 
-        float damagePertick = damage / smoothDecreaseDuration;
-        float elapsedTime = 0f;
-        float healthInicial = health;
-        while (elapsedTime < smoothDecreaseDuration)
-        {
-            float currentDamage = damagePertick * Time.deltaTime;
-            health -= currentDamage;
-            elapsedTime += Time.deltaTime;
-
-            updateHealthText(health);
-
-            if (health <= 0)
-            {
-                health = 0;
-
-                StartCoroutine(GameOver());
-            }
-            yield return null;
-        }
-
-        healthInicial -= damage;
-        updateHealthText(healthInicial);
-
-        healthText.color = originalHealthColor;
-        heartIcon.color = originalHealthColor;
-
-        Debug.Log("Saramambiche");
-    }
-    void updateHealthText(float health)
-    {
-        healthText.text = health.ToString("0");
-    }
 }
