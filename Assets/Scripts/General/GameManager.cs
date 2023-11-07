@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using TMPro;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
@@ -24,9 +25,10 @@ public class GameManager : MonoBehaviour
         //DontDestroyOnLoad(gameObject);  // hacemos que al cambiar de escena, el manager se mantenga
 
     }
-    [Header("UI Stiff")]
+    [Header("UI Stuff")]
+    [SerializeField] private float smoothDecreaseDuration = 0.5f;
     public TextMeshProUGUI ammoText;
-    public TextMeshProUGUI healthText;
+    public TMP_Text healthText;
     public TextMeshProUGUI ZombiesRestantesText;
     public TextMeshProUGUI currentWaveText;
     public TextMeshProUGUI NumeroDeOleadaAnimada;
@@ -51,17 +53,20 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        healthText.text = GameObject.Find("Player").GetComponent<PlayerDamage>().ToalHealth.ToString();
+
         Application.targetFrameRate = 60;
         Cursor.visible = false;
-        if(HowMuchWaves.GetInstancia().Toaster)
+        /*if(HowMuchWaves.GetInstancia().Toaster) 
         foreach(GameObject obj in ThingsToDestroy)
         {
             Destroy(obj);
-        }
-    }
+        }*/
+
+}
 
 
-    public void CambiarDeEstadoEnJuego(EstadosDeJuego estado)
+public void CambiarDeEstadoEnJuego(EstadosDeJuego estado)
     {
         switch (estado)
         {
@@ -105,17 +110,46 @@ public class GameManager : MonoBehaviour
         LetrasAnimadas.SetTrigger("mostrar");
     }
 
-    public void UpdateHeathOnScreen(int healt)
+    /*public void UpdateHeathOnScreen(int healt)
     {
         healthText.text = healt.ToString();
         if (healt <= 0)
         {
             StartCoroutine(GameOver());
         }
-    }
+    }*/
 
     public void UpdateAmmoOnScreen(int ammo)
     {
         ammoText.text = ammo.ToString();
+    }
+
+    public IEnumerator SmoothDecreaseHealth(float damage, float health)
+    {
+        float damagePertick = damage / smoothDecreaseDuration;
+        float elapsedTime = 0f;
+        float healthInicial = health;
+        while (elapsedTime < smoothDecreaseDuration)
+        {
+            float currentDamage = damagePertick * Time.deltaTime;
+            health -= currentDamage;
+            elapsedTime += Time.deltaTime;
+
+            updateHealthText(health);
+
+            if (health <= 0)
+            {
+                health = 0;
+
+                StartCoroutine(GameOver());
+            }
+            yield return null;
+        }
+        healthInicial -= damage;
+        updateHealthText(healthInicial);
+    }
+    void updateHealthText(float health)
+    {
+        healthText.text = health.ToString("0");
     }
 }

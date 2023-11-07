@@ -72,19 +72,20 @@ public class PlayerDamage : MonoBehaviour
         }**/
     }
 
-    private void GetDamage(int danio)
+    public void GetDamage(int danio)
     {
+
+        StartCoroutine(GameManager.GetInstancia().SmoothDecreaseHealth(danio, CurrentHealth));
         CurrentHealth -= danio;
         animator.SetTrigger("Damage");
         StartCoroutine(DamageRutine());
-        if(CurrentHealth <= 0)
+        if (CurrentHealth <= 0)
         {
-            GameManager.GetInstancia().UpdateHeathOnScreen(0);
+            StartCoroutine(GameManager.GetInstancia().SmoothDecreaseHealth(0, 0));
             GetComponent<RagdollPlayer>().EnableRagdoll();
             return;
 
         }
-        GameManager.GetInstancia().UpdateHeathOnScreen(CurrentHealth);
     }
 
     private IEnumerator DamageRutine()
