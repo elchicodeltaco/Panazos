@@ -5,7 +5,8 @@ using UnityEngine;
 public class CharacterMovement : MonoBehaviour
 {
     private CharacterController controller;
-    public Transform cameraTransform;
+    public Transform camFollower;
+    public float camSpeed;
 
     [Header("Ground Stuff")]
     public Transform groundCkeck;
@@ -19,41 +20,34 @@ public class CharacterMovement : MonoBehaviour
     public float speed;
     private float smoothRotationTime = 0.1f;
     private float turnSmoothVel;
+    public float RotationSpeed;
 
     //Variables para mecanica de brinco
 
     [Header("Gravity")]
     public float jumpHeigth;
     public float gravity = -9.81f;
-    private Vector3 fallingvelocity;
+    public Vector3 fallingvelocity;
+
+
+    private Vector3 m_input;
+    private Rigidbody rb;
 
     void Start()
     {
-
-        //obtenemos el controlador del personaje
-
-        controller = GetComponent<CharacterController>();
+        //controller = GetComponent<CharacterController>();
+        rb = GetComponent<Rigidbody>();
+        m_input = transform.position;
     }
 
 
     void Update()
     {
+        camFollower.position = Vector3.Lerp(camFollower.position, transform.position, camSpeed * Time.deltaTime);
+        /*
+        
 
-        //A través de una esfera checamos si el personaje no está en el piso o cayendo
-        isGrounded = Physics.CheckSphere(groundCkeck.position, groundDistance, groundMask);
-
-        if(isGrounded && fallingvelocity.y < 0)
-        {
-            fallingvelocity.y = -2;
-        }
-
-
-
-        float horizontal = Input.GetAxis("Horizontal");
-        float vertical = Input.GetAxis("Vertical");
-
-        Vector3 direction = new Vector3(horizontal, 0f, vertical).normalized;
-
+        
         if(direction.magnitude > 0.1f)
         {
             float targetAngle = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg + cameraTransform.eulerAngles.y;
@@ -71,6 +65,57 @@ public class CharacterMovement : MonoBehaviour
             fallingvelocity.y = Mathf.Sqrt(jumpHeigth * -2f * gravity);
         }
         fallingvelocity.y += gravity * Time.deltaTime;
-        controller.Move(fallingvelocity * Time.deltaTime);
+        controller.Move(fallingvelocity * Time.deltaTime);*/
+        GetInput();
+        Look();
+    }
+
+    private void FixedUpdate()
+    {
+        Move();
+    }
+
+    private void GetInput()
+    {
+        float horizontal = Input.GetAxisRaw("Horizontal");
+        float vertical = Input.GetAxisRaw("Vertical");
+
+        m_input = new Vector3(horizontal, 0f, vertical).normalized;
+    }
+
+    private void Move()
+    {
+        rb.velocity = m_input * speed * Time.fixedDeltaTime;
+        //A través de una esfera checamos si el personaje no está en el piso o cayendo
+        isGrounded = Physics.CheckSphere(groundCkeck.position, groundDistance, groundMask);
+
+        if (isGrounded && fallingvelocity.y < 0)
+        {
+            fallingvelocity.y = -8;
+        }
+        //gravity
+        fallingvelocity.y += gravity * Time.deltaTime;
+        rb.velocity += fallingvelocity* Time.deltaTime;
+    }
+
+    private void Look()
+    {
+        if (m_input != Vector3.zero)
+        {
+
+            Matrix4x4 matriz = Matrix4x4.Rotate(Quaternion.Euler(0, 45, 0));
+            Vector3 skewedInput = matriz.MultiplyPoint3x4(m_input);
+
+            Vector3 relative = (transform.position + skewedInput) - transform.position;
+            Quaternion rot = Quaternion.LookRotation(relative, Vector3.up);
+
+            transform.rotation = Quaternion.RotateTowards(transform.rotation, rot, RotationSpeed * Time.deltaTime);
+        }
+    }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.magenta;
+        Gizmos.DrawWireSphere(groundCkeck.position, groundDistance);
     }
 }

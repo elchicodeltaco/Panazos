@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
+[SelectionBase]
 public class RagdollZombie : RagdollEnabler
 {
     [SerializeField] private MonoBehaviour[] scriptsToDesable;

@@ -1,0 +1,131 @@
+public class ColideAndSlide : MonoBehaviour
+{
+    //colide and slide funcion
+    private int maxBounces = 5;
+    private float skinWidth = 0f;
+    private Bounds bounds;
+    public LayerMask groundMask;
+    public float force;
+    private Vector3 gravity;
+    private Vector3 direction;
+    public Vector3 limitVector = new Vector3(3, 3, 3);
+
+    //CnS publicas
+    [SerializeField] float maxSlopeAngle = 55;
+
+
+    //camera follower
+    public Transform camFollower;
+    public float camSpeed;
+
+    private Rigidbody rb;
+    private CharacterController cc;
+    public float velLimit;
+
+    // Start is called before the first frame update
+    void Start()
+    {
+        rb = GetComponent<Rigidbody>();
+        cc = GetComponent<CharacterController>();
+        gravity = new Vector3(0, -25f, 0);
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        bounds = GetComponent<Collider>().bounds;
+        bounds.Expand(-2 * skinWidth);
+        float horizontal = Input.GetAxisRaw("Horizontal");
+        float vertical = Input.GetAxisRaw("Vertical");
+        float newVertical = vertical;
+        float newHorizontal = horizontal;
+        if (vertical == 1)
+            newHorizontal++;
+
+        if (horizontal == 1)
+            newVertical--;
+
+        if (vertical == -1)
+            newHorizontal--;
+
+        if (horizontal == -1)
+            newVertical++;
+        direction = new Vector3(newHorizontal, 0, newVertical).normalized;
+
+        
+    }
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="vel"> es la velocidad inicial con la que entra 
+    /// <param name="pos"></param> es la posicion desde la cual se va a checar
+    /// <param name="depth"></param> es para recursion en caso de que haya mas de una colision
+    /// <returns></returns>
+    /// 
+
+    private void FixedUpdate()
+    {
+        Vector3 cns = CollideNSlide(direction, transform.position, 0, false);
+        //cns += CollideNSlide(gravity, transform.position + cns, 0, true);
+        //transform.Translate(cns * force * Time.deltaTime);
+        rb.velocity = Vector3.zero;
+        rb.velocity = cns * force;
+
+        //rb.MovePosition(transform.position + cns * force * Time.deltaTime);
+        //cc.Move(cns * Time.deltaTime);
+        print(rb.velocity.magnitude);
+
+        camFollower.position = Vector3.Lerp(camFollower.position, transform.position, camSpeed * Time.deltaTime);
+    }
+    private Vector3 CollideNSlide(Vector3 vel, Vector3 pos, int depth, bool gravityPass)
+    {
+        if(depth >= maxBounces)
+        {
+            return Vector3.zero;
+        }
+
+        float dist = vel.magnitude + skinWidth;
+        RaycastHit hit;
+        if (Physics.SphereCast(pos, bounds.extents.x, vel.normalized, out hit, dist))/*
+        CapsuleCollider capCollider = GetComponent<CapsuleCollider>();
+
+        Vector3 p1 = pos + capCollider.center + Vector3.up * -capCollider.height * 0.5F;
+        Vector3 p2 = p1 + Vector3.up * capCollider.height;
+        if(Physics.CapsuleCast(p1, p2, bounds.extents.x, vel.normalized, out hit, dist))*/
+        {
+            Vector3 snapToSurface = vel.normalized * (hit.distance - skinWidth);
+            Vector3 leftover = vel - snapToSurface;
+            //slope angle
+            float angle = Vector3.Angle(Vector3.up, hit.normal);
+
+            if(snapToSurface.magnitude <= skinWidth)
+            {
+                snapToSurface = Vector3.zero;
+            }
+
+            //normal ground / slope
+            
+            if(angle <= maxSlopeAngle)
+            {
+                if (gravityPass)
+                {
+                    return snapToSurface;
+                }
+                float mag = leftover.magnitude;
+                leftover = Vector3.ProjectOnPlane(leftover, hit.normal).normalized;
+                leftover *= mag;
+            }
+            else
+            {
+
+            }
+
+
+
+            return snapToSurface + CollideNSlide(leftover, pos + snapToSurface, depth + 1, gravityPass);
+        }
+
+
+        return vel;
+    }
+}

@@ -74,7 +74,7 @@ public class WaveManager : MonoBehaviour
             GameObject[] enemies = GameObject.FindGameObjectsWithTag("Zombie");
             foreach(GameObject zombie in enemies)
             {
-                zombie.GetComponent<EnemyBehavior>().alertRange *= 3;
+                //zombie.GetComponent<EnemyBehavior>().alertRange *= 3;
 
             }
         }

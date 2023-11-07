@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 [RequireComponent(typeof(CharacterController))]
-
+[SelectionBase]
 public class PlayerController : MonoBehaviour
 {
     private Animator animator;
@@ -28,6 +28,9 @@ public class PlayerController : MonoBehaviour
     public float gravity = -9.81f;
     private Vector3 fallingvelocity;
 
+    private Vector3 m_input;
+    private float varSpeed;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -39,50 +42,47 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        GetInput();
+       
+
+        
+        camFollower.position = Vector3.Lerp(camFollower.position, transform.position, camSpeed * Time.deltaTime);
+    }
+
+    private void FixedUpdate()
+    {
+        Move();
+    }
+
+    private void GetInput()
+    {
+        float horizontal = Input.GetAxisRaw("Horizontal");
+        float vertical = Input.GetAxisRaw("Vertical");
+
+        m_input = new Vector3(horizontal, 0f, vertical).normalized;
+
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             SceneManager.LoadScene(0);
         }
         isGrounded = Physics.CheckSphere(groundCkeck.position, groundDistance, groundMask);
 
-        if (isGrounded && fallingvelocity.y < 0)
-        {
-            fallingvelocity.y = -2;
-        }
-
-        float vertical = Input.GetAxisRaw("Vertical");
-        float horizontal = Input.GetAxisRaw("Horizontal");
-        
-        float newVertical = vertical;
-        float newHorizontal = horizontal;
-        /*
-        if (vertical == 1)
-            newHorizontal++;
-
-        if (horizontal == 1)
-            newVertical--;
-
-        if (vertical == -1)
-            newHorizontal--;
-
-        if (horizontal == -1)
-            newVertical++;*/
-
-        Vector3 direction = new Vector3(horizontal, 0f, vertical).normalized;
-
-        float varSpeed = speed;
+        varSpeed = speed;
 
         if (Input.GetButton("Fire3"))
         {
             varSpeed *= 2;
         }
-        
-            animator.SetFloat("Velocity", varSpeed * direction.magnitude);
+    }
 
-        if (direction.magnitude > 0.1f)
+    private void Move()
+    {
+        animator.SetFloat("Velocity", varSpeed * m_input.magnitude);
+
+        if (m_input.magnitude > 0.1f)
         {
-            float targetAngle = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg;
-            float angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle +45f, ref turnSmoothVel, smoothRotationTime);
+            float targetAngle = Mathf.Atan2(m_input.x, m_input.z) * Mathf.Rad2Deg;
+            float angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle + 45f, ref turnSmoothVel, smoothRotationTime);
             transform.rotation = Quaternion.Euler(0, angle, 0);
 
             Vector3 moveDirection = Quaternion.Euler(0f, angle, 0f) * new Vector3(0, 0, 1);
@@ -90,10 +90,14 @@ public class PlayerController : MonoBehaviour
             controller.Move(moveDirection.normalized * varSpeed * Time.deltaTime);
         }
 
+        if (!isGrounded && fallingvelocity.y < 0)
+        {
+            fallingvelocity.y = -8;
+        }
+
         //gravity
         fallingvelocity.y += gravity * Time.deltaTime;
         controller.Move(fallingvelocity * Time.deltaTime);
 
-        camFollower.position = Vector3.Lerp(camFollower.position, transform.position, camSpeed * Time.deltaTime);
     }
 }
