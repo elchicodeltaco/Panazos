@@ -39,6 +39,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private Animator LetrasAnimadas;
     [SerializeField] private Animator FadeInBlack;
     public GameObject FinalFade;
+    [SerializeField]private bool escaladoCompletado;
 
     private float scaleCanvas;
 
@@ -116,9 +117,17 @@ public void CambiarDeEstadoEnJuego(EstadosDeJuego estado)
         NumeroDeOleadaAnimada.text = wave.ToString();
         LetrasAnimadas.SetTrigger("mostrar");
     }
+    private void Update()
+    {
+        if (!escaladoCompletado)
+        {
+            GettingDamageUI();
+        }
+    }
 
     public void GettingDamageUI()
     {
+        escaladoCompletado = false;
         TotalHealth = GameObject.Find("Player").GetComponent<PlayerDamage>().CurrentHealth;
         Vector3 escala = new Vector3();
 
@@ -127,35 +136,36 @@ public void CambiarDeEstadoEnJuego(EstadosDeJuego estado)
             case 0:
                 if(TotalHealth == 0)
                 {
-                    escala = new Vector3(25, 14, 1);
+                    escala = new Vector3(18, 12, 1);
                 }
                 break;
 
             case 1:
                 if (TotalHealth == 1)
                 {
-                    escala = new Vector3(30, 21, 1);
+                    escala = new Vector3(25, 18, 1);
                 }
                 break;
             case 2:
                 if (TotalHealth == 2)
                 {
-                    escala = new Vector3(35, 29, 1);
+                    escala = new Vector3(30, 24, 1);
                 }
                 break;
             case 3:
                 if (TotalHealth == 3)
                 {
-                    escala = new Vector3(100, 100, 1);
+                    escala = new Vector3(50, 50, 1);
 
                 }
                 break;
         }
-        Life.rectTransform.localScale = Vector3.Lerp(Life.rectTransform.localScale, escala, 2.0f * Time.deltaTime);
-
-
-
+        Life.transform.localScale = Vector3.Lerp(Life.transform.localScale, escala, 3.0f * Time.deltaTime);
+        if(Life.transform.localScale.magnitude == escala.magnitude)
+        {
+            escaladoCompletado = true;
+        }
     }
 
-
 }
+

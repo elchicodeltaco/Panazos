@@ -10,6 +10,8 @@ public class PlayerDamage : MonoBehaviour
     private bool canGetDamage;
     private bool ChangeLayer;
 
+
+    private Coroutine corrutinaActiva;
     public LayerMask playerLayer;
 
     private static PlayerDamage instancia;
@@ -33,6 +35,7 @@ public class PlayerDamage : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        corrutinaActiva = null;
         animator = GetComponentInChildren<Animator>();
         CurrentHealth = ToalHealth;
         //GameManager.GetInstancia().UpdateHeathOnScreen(CurrentHealth);
@@ -75,10 +78,14 @@ public class PlayerDamage : MonoBehaviour
     public void GetDamage()
     {
 
+        if (corrutinaActiva != null)
+        {
+            StopCoroutine(corrutinaActiva);
+        }
         CurrentHealth --;
         GameManager.GetInstancia().GettingDamageUI();
         animator.SetTrigger("Damage");
-        StartCoroutine(DamageRutine());
+        corrutinaActiva = StartCoroutine(DamageRutine());
         if (CurrentHealth <= 0)
         {
             GameManager.GetInstancia().GettingDamageUI();
@@ -90,9 +97,14 @@ public class PlayerDamage : MonoBehaviour
 
     private IEnumerator DamageRutine()
     {
-        canGetDamage = false;
-        yield return new WaitForSeconds(2);
-        canGetDamage = true;
+        if(CurrentHealth > 0)
+        {
+            yield return new WaitForSeconds(4);
+            CurrentHealth = ToalHealth;
+            GameManager.GetInstancia().GettingDamageUI();
+        }
+        
+            
     }
 
     public void AddMoreHealth()
