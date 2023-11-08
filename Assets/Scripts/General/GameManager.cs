@@ -27,7 +27,6 @@ public class GameManager : MonoBehaviour
     }
     [Header("UI Stuff")]
     [SerializeField] private float smoothDecreaseDuration = 0.5f;
-    public TextMeshProUGUI ammoText;
 
     private int TotalHealth;
     [SerializeField] private Image Life;
