@@ -123,6 +123,37 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 23800000, guid: 3ec8f4cb6f6aa784eb20c975a41f61a7, type: 2}
+--- !u!1 &13014574
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 13014575}
+  m_Layer: 9
+  m_Name: RootBonePosition
+  m_TagString: Untagged
+  m_Icon: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &13014575
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 13014574}
+  m_LocalRotation: {x: 0.09206846, y: -0.00000011870297, z: -0.000000010975416, w: 0.9957527}
+  m_LocalPosition: {x: -0.008000016, y: 0.2128005, z: -0.24469185}
+  m_LocalScale: {x: 48.354397, y: 48.3544, z: 48.3544}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 670868630665212159}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &72157729
 GameObject:
   m_ObjectHideFlags: 0
@@ -135,7 +166,7 @@ GameObject:
   - component: {fileID: 72157733}
   - component: {fileID: 72157732}
   - component: {fileID: 72157731}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Plane_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -427,6 +458,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7236415962525535997, guid: 616385cb826fd10469d2f7be0c60d232, type: 3}
+      propertyPath: force
+      value: 25
+      objectReference: {fileID: 0}
     - target: {fileID: 7236415962525535999, guid: 616385cb826fd10469d2f7be0c60d232, type: 3}
       propertyPath: camFollower
       value: 
@@ -605,7 +640,7 @@ GameObject:
   - component: {fileID: 238567196}
   - component: {fileID: 238567195}
   - component: {fileID: 238567194}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube (13)_06
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -715,7 +750,7 @@ GameObject:
   - component: {fileID: 302204913}
   - component: {fileID: 302204912}
   - component: {fileID: 302204911}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube (13)_04
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -856,7 +891,7 @@ GameObject:
   - component: {fileID: 633418849}
   - component: {fileID: 633418848}
   - component: {fileID: 633418847}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube (13)_05
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1060,7 +1095,7 @@ GameObject:
   - component: {fileID: 731931869}
   - component: {fileID: 731931868}
   - component: {fileID: 731931867}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube (13)_02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1170,7 +1205,7 @@ GameObject:
   - component: {fileID: 759048312}
   - component: {fileID: 759048311}
   - component: {fileID: 759048310}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube (13)_07
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1280,7 +1315,7 @@ GameObject:
   - component: {fileID: 895092984}
   - component: {fileID: 895092983}
   - component: {fileID: 895092982}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube (13)_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1505,7 +1540,7 @@ GameObject:
   - component: {fileID: 1001687209}
   - component: {fileID: 1001687208}
   - component: {fileID: 1001687207}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube (13)_09
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1614,7 +1649,7 @@ GameObject:
   - component: {fileID: 1127212343}
   - component: {fileID: 1127212342}
   - component: {fileID: 1127212341}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Plane
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1713,7 +1748,7 @@ GameObject:
   - component: {fileID: 1274996025}
   - component: {fileID: 1274996024}
   - component: {fileID: 1274996023}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube (13)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2338,7 +2373,7 @@ GameObject:
   - component: {fileID: 1574643686}
   - component: {fileID: 1574643685}
   - component: {fileID: 1574643684}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube (13)_03
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2603,7 +2638,7 @@ GameObject:
   - component: {fileID: 1830734470}
   - component: {fileID: 1830734469}
   - component: {fileID: 1830734468}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube (13)_08
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2838,14 +2873,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1899172569}
-  m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071067}
+  m_LocalRotation: {x: -0.70698744, y: 0.0007025686, z: -0.00065700134, w: 0.7072255}
   m_LocalPosition: {x: 7.62, y: 0, z: -23.66}
   m_LocalScale: {x: 100, y: 100, z: 100}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1499298155}
   m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -89.892, y: 0, z: -0.106}
 --- !u!1 &2048448027
 GameObject:
   m_ObjectHideFlags: 0
@@ -4286,8 +4321,8 @@ NavMeshAgent:
   m_Speed: 2.5
   m_Acceleration: 8
   avoidancePriority: 50
-  m_AngularSpeed: 120
-  m_StoppingDistance: 0
+  m_AngularSpeed: 500
+  m_StoppingDistance: 1.2
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
   m_AutoRepath: 1
@@ -4361,6 +4396,7 @@ Transform:
   m_Children:
   - {fileID: 670868631575379117}
   - {fileID: 670868632305005574}
+  - {fileID: 13014575}
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -15802,7 +15838,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_alertRange: 5
-  m_attackRange: 1
+  m_attackRange: 0.92
   m_wanderRange: 4.57
   m_playersMask:
     serializedVersion: 2
@@ -15824,16 +15860,22 @@ MonoBehaviour:
   animator: {fileID: 670868630665212158}
   ragdollRoot: {fileID: 670868632313825467}
   rigidbodies: []
-  scriptsToDesable: []
+  scriptsToDesable:
+  - {fileID: 8003488565806037374}
   collidersToDesable:
   - {fileID: 670868630665212155}
   - {fileID: 670868630665212154}
   SonAnimator: {fileID: 670868632305005568}
-  timeToWakeUp: 3
+  timeToWakeUp: 2
   forceToRag: 5
   multiplicationForce: 40
   rootBone: {fileID: 670868632313825467}
   MoridoParticula: {fileID: 4179395902104008575, guid: d2a5148315a276147963b476c11a9cbd, type: 3}
+  m_groundLayer:
+    serializedVersion: 2
+    m_Bits: 64
+  ragdollActive: 0
+  rootBoneHeight: {fileID: 13014575}
 --- !u!23 &8004523453393031458
 MeshRenderer:
   m_ObjectHideFlags: 0

@@ -54,6 +54,7 @@ public class EnemyBehavior : MonoBehaviour
 
     public void Behavior()
     {
+        
         agente.enabled = false;
         if(Time.timeSinceLevelLoad>= lastMove + interval)
         {

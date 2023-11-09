@@ -36,6 +36,7 @@ public class RagdollEnabler : MonoBehaviour
             item.isKinematic = true;
             animator.enabled = true;
         }
+        animator.Play("idle");
     }
 
     public virtual void DesactivarAnimaciones() { }// override

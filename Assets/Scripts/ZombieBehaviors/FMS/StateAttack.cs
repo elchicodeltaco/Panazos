@@ -16,19 +16,22 @@ public class StateAttack : Estado
         Debug.Log("Atacando");
         animator.SetBool("Attack", true);
         animator.SetBool("Run", false);
-        animator.SetBool("Walk", false);
+        //animator.SetBool("Walk", false);
     }
     public override void UpdateEstado()
     {
         //checar la esfera
-        if (!fsm.mono.GetComponent<ZombieBase>()._getAlertState)
+        if (!fsm.mono.GetComponent<ZombieBase>()._getAttackState)
         {
-            fsm.CambiarDeEstado(m_zombie.estadoWander);
+            fsm.CambiarDeEstado(m_zombie.estadoChase);
         }
+        //m_zombie.m_agent.isStopped = false;
     }
     public override void Exit()
     {
+        
         Debug.Log("exit perseguir");
-        animator.SetBool("Run", false);
+        animator.SetBool("Run", true);
+        animator.SetBool("Attack", false);
     }
 }

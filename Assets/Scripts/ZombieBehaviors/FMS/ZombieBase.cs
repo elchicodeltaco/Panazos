@@ -48,6 +48,7 @@ public class ZombieBase : MonoBehaviour
         //Crear estados que puede tener el zombie
         estadoWander = new StateWander(maquinaEstados, animator, this);
         estadoChase = new StateChase(maquinaEstados, animator, this);
+        estadoAttack = new StateAttack(maquinaEstados, animator, this);
 
         //Se empieza a ejecutar la FMS
         maquinaEstados.Iniciar(estadoWander);
@@ -59,7 +60,7 @@ public class ZombieBase : MonoBehaviour
         maquinaEstados.Update();
 
         m_alertState = Physics.CheckSphere(transform.position, m_alertRange, m_playersMask);
-        m_attackState = Physics.CheckSphere(transform.position, m_attackRange, m_playersMask);
+        m_attackState = Physics.CheckSphere(transform.position + transform.forward * 0.5f, m_attackRange, m_playersMask);
 
         if(m_alertState && m_player == null)
         {
@@ -71,11 +72,14 @@ public class ZombieBase : MonoBehaviour
         animator.SetFloat("velocity",m_agent.velocity.magnitude);
     }
 
+
+
+
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.magenta;
         Gizmos.DrawWireSphere(transform.position, m_alertRange);
-        Gizmos.DrawWireSphere(transform.position, m_attackRange);
+        Gizmos.DrawWireSphere(transform.position + transform.forward * 0.5f, m_attackRange);
         Gizmos.color = Color.yellow;
         Gizmos.DrawWireSphere(transform.position, m_wanderRange);
     }

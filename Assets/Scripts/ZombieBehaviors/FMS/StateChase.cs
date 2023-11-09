@@ -5,7 +5,7 @@ using UnityEngine;
 public class StateChase : Estado
 {
     private ZombieBase m_zombie;
-    private Vector3 m_normalVelocity;
+    private float m_normalVelocity;
     public StateChase(MaquinaEstados fsm, Animator animator, ZombieBase zombie) : base(fsm, animator)
     {
         this.m_zombie = zombie;
@@ -15,8 +15,7 @@ public class StateChase : Estado
         base.Enter();
         Debug.Log("Persiguiendo");
         animator.SetBool("Run", true);
-        m_normalVelocity = m_zombie.m_agent.velocity;
-        m_zombie.m_agent.velocity *= 3;
+        
     }
     public override void UpdateEstado()
     {
@@ -25,6 +24,11 @@ public class StateChase : Estado
         {
             //m_zombie.m_agent.Stop();
             fsm.CambiarDeEstado(m_zombie.estadoWander);
+        }
+        if (fsm.mono.GetComponent<ZombieBase>()._getAttackState)
+        {
+            //m_zombie.m_agent.Stop();
+            fsm.CambiarDeEstado(m_zombie.estadoAttack);
         }
         //if (granada != null)
         //{
@@ -35,14 +39,12 @@ public class StateChase : Estado
         //}
         Debug.DrawRay(m_zombie.m_player.transform.position, Vector3.up, Color.blue, 1.0f); //so you can see with gizmos
         m_zombie.m_agent.SetDestination(m_zombie.m_player.transform.position);
-        
-        
-        
+        m_zombie.m_agent.speed = 2.5f;
+
     }
     public override void Exit()
     {
         Debug.Log("exit perseguir");
         animator.SetBool("Run", false);
-        m_zombie.m_agent.velocity = m_normalVelocity;
     }
 }

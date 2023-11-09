@@ -48,7 +48,7 @@ public class StateWander : Estado
         m_zombie.m_agent.speed = 1;
         m_zombie.m_agent.acceleration = 4;
         
-        Debug.Log("mag " + m_zombie.m_agent.velocity.magnitude);
+        //Debug.Log("mag " + m_zombie.m_agent.velocity.magnitude);
         
     }
 

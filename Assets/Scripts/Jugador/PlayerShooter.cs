@@ -54,7 +54,7 @@ public class PlayerShooter : MonoBehaviour
                 transform.GetComponentInChildren<Animator>().SetBool("Attack", true);
                 dustWorld.Play();
                 dustLocal.Play();
-                GetComponent<PlayerDamage>().GetDamage();
+                //GetComponent<PlayerDamage>().GetDamage();
                 //AudioManager.instancia.PlaySFX(0);
             //}
 
@@ -97,7 +97,7 @@ public class PlayerShooter : MonoBehaviour
             //else
             //{
             Quaternion temp = transform.rotation;
-            print(temp.eulerAngles.y);
+            //print(temp.eulerAngles.y);
                 toast.transform.position = muzzle.position;
                 toast.transform.rotation = Quaternion.Euler(0,temp.eulerAngles.y+180f,90);
                 //toast.transform.rotation = Quaternion.Euler(muzzle.rotation.x, transform.rotation.y, muzzle.rotation.z);

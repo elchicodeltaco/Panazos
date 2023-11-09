@@ -14,8 +14,10 @@ public class RagdollZombie : RagdollEnabler
     [SerializeField] private float multiplicationForce;
     [SerializeField] private Transform rootBone;
     [SerializeField] private ParticleSystem MoridoParticula;
-    private bool ragdollActive;
+    [SerializeField] private LayerMask m_groundLayer;
+    public bool ragdollActive;
     private Quaternion rootBoneRotation;
+    public Transform rootBoneHeight;
 
 
     public override void DesactivarAnimaciones()
@@ -50,13 +52,17 @@ public class RagdollZombie : RagdollEnabler
         {
            script.enabled = true;
         }
-        GetComponent<NavMeshAgent>().enabled = false;
+        GetComponent<NavMeshAgent>().enabled = true;
+        ragdollActive = false;
     }
     IEnumerator RevivirRutina()
     {
         //Le decimos al game manager que murio un zombie
         //WaveManager.GetInstancia().ZombieAsesinadoMasacradoDestruidoXD();
         float rand = Random.Range(timeToWakeUp, timeToWakeUp + 2f);
+        yield return new WaitForSeconds(1f);
+        yield return new WaitUntil(CheckGround);
+        print("Aterrizo");
         yield return new WaitForSeconds(rand);
         AlignPositionToRootBone();
         EnableAnimator();
@@ -122,8 +128,20 @@ public class RagdollZombie : RagdollEnabler
         }
 
         //esto es para el espacio local de los huesos
-        rootBone.position = origialBonePos;
+        rootBone.position = rootBoneHeight.position;
         rootBone.rotation = rootBoneRotation;
+    }
+
+    private bool CheckGround()
+    {
+
+        //if (Physics.Raycast(rootBone.position, Vector3.down * 0.2f, out RaycastHit hit, m_groundLayer))
+        Collider[] col = Physics.OverlapSphere(rootBone.position, 0.2f, m_groundLayer);
+        if (col.Length>0)
+        {
+            return true;
+        }
+        return false;
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -172,5 +190,9 @@ public class RagdollZombie : RagdollEnabler
             GetComponent<NavMeshAgent>().enabled = true;
             GetComponent<EnemyBehavior>().enabled = true;
         }
+    }
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.red;
     }
 }
