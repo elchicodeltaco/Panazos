@@ -135,26 +135,26 @@ public void CambiarDeEstadoEnJuego(EstadosDeJuego estado)
             case 0:
                 if(TotalHealth == 0)
                 {
-                    escala = new Vector3(18, 12, 1);
+                    escala = new Vector3(18, 12, 287);
                 }
                 break;
 
             case 1:
                 if (TotalHealth == 1)
                 {
-                    escala = new Vector3(25, 18, 1);
+                    escala = new Vector3(25, 18, 287);
                 }
                 break;
             case 2:
                 if (TotalHealth == 2)
                 {
-                    escala = new Vector3(30, 24, 1);
+                    escala = new Vector3(30, 24, 287);
                 }
                 break;
             case 3:
                 if (TotalHealth == 3)
                 {
-                    escala = new Vector3(50, 50, 1);
+                    escala = new Vector3(50, 50, 287);
 
                 }
                 break;

@@ -72,7 +72,6 @@ public class PlayerShooter : MonoBehaviour
         if (Input.GetButtonUp("Fire2"))
         {
             ThrowGrenade();
-            //GetComponent<ApuntadoGranada>().estaActivo = false;
         }
     }
 
@@ -131,10 +130,5 @@ public class PlayerShooter : MonoBehaviour
             //GameManager.GetInstancia().UpdateAmmoOnScreen(currentAmmo);
         }
     }
-    public void AddMoreAmmo()
-    {
-        //int newAmmo = Random.Range(15, 51);
-        currentAmmoTostadora += 10;
-        //GameManager.GetInstancia().UpdateAmmoOnScreen(currentAmmo);
-    }
+
 }

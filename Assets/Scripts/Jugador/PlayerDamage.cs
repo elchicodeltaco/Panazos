@@ -110,6 +110,6 @@ public class PlayerDamage : MonoBehaviour
     public void AddMoreHealth()
     {
         //int newHealth = Random.Range(5, 16);
-        CurrentHealth += 5;
+        CurrentHealth ++;
     }
 }

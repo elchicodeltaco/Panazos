@@ -106,7 +106,6 @@ public class WaveManager : MonoBehaviour
         zombiesCreados = 0;
         GameManager.GetInstancia().UpdateWaveOnScreen(currentWave);
         spawn.ReducirIntervalo(currentWave);
-        PlayerShooter.GetInstancia().AddMoreAmmo();
         if(currentWave%5 == 0)
         PlayerDamage.GetInstancia().AddMoreHealth();
         GameManager.GetInstancia().UpdateZombiesOnScreen(zombiesRestantes);
