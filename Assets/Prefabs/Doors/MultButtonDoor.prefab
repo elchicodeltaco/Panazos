@@ -192,6 +192,7 @@ GameObject:
   - component: {fileID: 1206475566104540756}
   - component: {fileID: 1206475566104540757}
   - component: {fileID: 1206475566104540762}
+  - component: {fileID: 7871063923071164286}
   m_Layer: 0
   m_Name: DoorOne
   m_TagString: Untagged
@@ -277,6 +278,22 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!208 &7871063923071164286
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1206475566104540760}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.5, y: 0.5, z: 0.5}
+  m_MoveThreshold: 0.1
+  m_Carve: 0
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 0, z: 0}
+  m_TimeToStationary: 0.5
 --- !u!1 &1206475566113119251
 GameObject:
   m_ObjectHideFlags: 0
@@ -478,6 +495,7 @@ GameObject:
   - component: {fileID: 1206475566731065497}
   - component: {fileID: 1206475566731065502}
   - component: {fileID: 1206475566731065503}
+  - component: {fileID: 4892558552494476210}
   m_Layer: 0
   m_Name: DoorTwo
   m_TagString: Untagged
@@ -563,6 +581,22 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!208 &4892558552494476210
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1206475566731065501}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.5, y: 0.5, z: 0.5}
+  m_MoveThreshold: 0.1
+  m_Carve: 0
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 0, z: 0}
+  m_TimeToStationary: 0.5
 --- !u!1 &1206475566975798166
 GameObject:
   m_ObjectHideFlags: 0

@@ -524,7 +524,7 @@ MonoBehaviour:
   ragdollRoot: {fileID: 8325207981863666837}
   rigidbodies: []
   m_timeToWakeUp: 2
-  m_launchAngle: 0.773
+  m_launchAngle: 0.381
   m_multiplicationForce: 1100
   forceToRag: 5
   rootBone: {fileID: 8325207981863666837}
