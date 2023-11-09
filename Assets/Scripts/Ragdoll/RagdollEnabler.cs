@@ -26,7 +26,7 @@ public class RagdollEnabler : MonoBehaviour
         {
             rb.isKinematic = false;
         }
-        DeshabilitarComponentes();
+        DisableComponents();
     }
 
     public void EnableAnimator()
@@ -39,10 +39,10 @@ public class RagdollEnabler : MonoBehaviour
         animator.Play("idle");
     }
 
-    public virtual void DesactivarAnimaciones() { }// override
-    public virtual void DeshabilitarComponentes() { }// override
+    public virtual void DisableAnimations() { }// override
+    public virtual void DisableComponents() { }// override
 
-    public virtual void HabilitarComponentes() { } // override
+    public virtual void EnableComponents() { } // override
     public virtual void AwakeMethod() { } // override
 
 

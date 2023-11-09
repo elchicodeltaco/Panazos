@@ -26,8 +26,6 @@ public class Toast : MonoBehaviour
         particle.transform.position = transform.position;
         yield return new WaitForSeconds(0.5f);
 
-
-
         gameObject.SetActive(false);
     }
 

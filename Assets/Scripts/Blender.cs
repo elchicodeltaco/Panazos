@@ -8,18 +8,24 @@ public class Blender : MonoBehaviour
     public ParticleSystem Particulas;
     [SerializeField] ZombieActivation m_Puerta;
 
-    private EnemyBehavior m_ultimoZombie = null;
+    private ZombieBase m_ultimoZombie = null;
     private void OnTriggerEnter(Collider other)
     {
         if(m_Puerta != null)
         if (other.CompareTag("ZombiePelvis"))
         {
-            EnemyBehavior otroombie = other.gameObject.GetComponentInParent<EnemyBehavior>();
-            if(otroombie != m_ultimoZombie)
-            {
-                m_ultimoZombie = otroombie;
-                m_Puerta.DeadZombie();
-            }
+            ZombieBase otroombie = other.gameObject.GetComponentInParent<ZombieBase>();
+                if (otroombie != m_ultimoZombie)
+                {
+                    print("c murio");
+                    m_ultimoZombie = otroombie;
+                    m_Puerta.DeadZombie();
+                }
+                else
+                {
+                    print("no cmurio");
+
+                }
         }
     }
 }

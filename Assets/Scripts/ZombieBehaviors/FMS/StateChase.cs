@@ -13,7 +13,7 @@ public class StateChase : Estado
     public override void Enter()
     {
         base.Enter();
-        Debug.Log("Persiguiendo");
+        //Debug.Log("Persiguiendo");
         animator.SetBool("Run", true);
         
     }
@@ -44,7 +44,7 @@ public class StateChase : Estado
     }
     public override void Exit()
     {
-        Debug.Log("exit perseguir");
+        //Debug.Log("exit perseguir");
         animator.SetBool("Run", false);
     }
 }

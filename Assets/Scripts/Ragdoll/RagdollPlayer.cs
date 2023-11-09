@@ -7,7 +7,7 @@ public class RagdollPlayer : RagdollEnabler
     [SerializeField] private MonoBehaviour[] scriptsToDesable;
     [SerializeField] private Collider[] collidersToDesable;
 
-    public override void DeshabilitarComponentes()
+    public override void DisableComponents()
     {
         foreach (MonoBehaviour script in scriptsToDesable)
         {

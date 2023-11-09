@@ -13,7 +13,7 @@ public class StateAttack : Estado
     public override void Enter()
     {
         base.Enter();
-        Debug.Log("Atacando");
+        //Debug.Log("Atacando");
         animator.SetBool("Attack", true);
         animator.SetBool("Run", false);
         //animator.SetBool("Walk", false);
@@ -30,7 +30,7 @@ public class StateAttack : Estado
     public override void Exit()
     {
         
-        Debug.Log("exit perseguir");
+        //Debug.Log("exit perseguir");
         animator.SetBool("Run", true);
         animator.SetBool("Attack", false);
     }

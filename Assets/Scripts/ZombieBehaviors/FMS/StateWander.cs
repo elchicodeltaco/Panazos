@@ -18,7 +18,7 @@ public class StateWander : Estado
     public override void Enter()
     {
         base.Enter();
-        Debug.Log("deambulando");
+        //Debug.Log("deambulando");
         animator.SetBool("Walk", true);
         animator.SetBool("Run", false);
     }
@@ -54,7 +54,7 @@ public class StateWander : Estado
 
     public override void Exit()
     {
-        Debug.Log("exit deambular");
+        //Debug.Log("exit deambular");
         animator.SetBool("Walk", false);
     }
 
