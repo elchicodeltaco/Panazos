@@ -431,6 +431,22 @@ PrefabInstance:
       propertyPath: force
       value: 25
       objectReference: {fileID: 0}
+    - target: {fileID: 7236415962525535997, guid: 616385cb826fd10469d2f7be0c60d232, type: 3}
+      propertyPath: GrenadeForce
+      value: 1.37
+      objectReference: {fileID: 0}
+    - target: {fileID: 7236415962525535997, guid: 616385cb826fd10469d2f7be0c60d232, type: 3}
+      propertyPath: currentAmmoGranada
+      value: 21
+      objectReference: {fileID: 0}
+    - target: {fileID: 7236415962525535998, guid: 616385cb826fd10469d2f7be0c60d232, type: 3}
+      propertyPath: m_BaseObjectDos
+      value: 
+      objectReference: {fileID: 4012699462434437479, guid: 9a2d9b330473f684f89f7b87801dc6e4, type: 3}
+    - target: {fileID: 7236415962525535998, guid: 616385cb826fd10469d2f7be0c60d232, type: 3}
+      propertyPath: m_AmountObjetoDos
+      value: 37
+      objectReference: {fileID: 0}
     - target: {fileID: 7236415962525535999, guid: 616385cb826fd10469d2f7be0c60d232, type: 3}
       propertyPath: camFollower
       value: 

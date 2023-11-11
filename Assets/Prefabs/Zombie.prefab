@@ -506,6 +506,9 @@ MonoBehaviour:
   m_playersMask:
     serializedVersion: 2
     m_Bits: 128
+  m_grenadeMask:
+    serializedVersion: 2
+    m_Bits: 1024
   m_agent: {fileID: 0}
   m_player: {fileID: 0}
 --- !u!114 &1572998210228286801

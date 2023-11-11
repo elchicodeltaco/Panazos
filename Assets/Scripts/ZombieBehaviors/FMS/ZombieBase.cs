@@ -20,9 +20,11 @@ public class ZombieBase : MonoBehaviour
 
     [Header("Variables")]
     [SerializeField] LayerMask m_playersMask;
+    [SerializeField] LayerMask m_grenadeMask;
 
     //esferas
     private bool m_alertState;
+
     private bool m_attackState;
     public bool _getAlertState
     {
@@ -36,6 +38,8 @@ public class ZombieBase : MonoBehaviour
     //variables privadas
     [HideInInspector] public NavMeshAgent m_agent;
     [HideInInspector] public Transform m_player;
+    [HideInInspector] public Transform m_grenade;
+
     private Animator animator;
 
     void Start()
@@ -59,13 +63,17 @@ public class ZombieBase : MonoBehaviour
     {
         maquinaEstados.Update();
 
-        m_alertState = Physics.CheckSphere(transform.position, m_alertRange, m_playersMask);
-        m_attackState = Physics.CheckSphere(transform.position + transform.forward * 0.5f, m_attackRange, m_playersMask);
+        
+
+        m_alertState = Physics.CheckSphere(transform.position, m_alertRange, m_playersMask) || Physics.CheckSphere(transform.position, m_alertRange, m_grenadeMask);
+        m_attackState = Physics.CheckSphere(transform.position + transform.forward * 0.5f, m_attackRange, m_playersMask) || Physics.CheckSphere(transform.position, m_alertRange, m_grenadeMask);
 
         if(m_alertState && m_player == null)
         {
             Collider[] coll = Physics.OverlapSphere(transform.position, m_alertRange, m_playersMask);
             m_player = coll[0].gameObject.GetComponent<Transform>();
+            Collider[] collGr = Physics.OverlapSphere(transform.position, m_alertRange, m_grenadeMask);
+            m_grenade = collGr[0].gameObject.GetComponent<Transform>();
             Debug.LogWarning("el jugador fue asigando");
         }
 

@@ -38,7 +38,8 @@ public class StateChase : Estado
 
         //}
         Debug.DrawRay(m_zombie.m_player.transform.position, Vector3.up, Color.blue, 1.0f); //so you can see with gizmos
-        m_zombie.m_agent.SetDestination(m_zombie.m_player.transform.position);
+
+        m_zombie.m_agent.SetDestination(m_zombie.m_grenade != null ? m_zombie.m_grenade.transform.position : m_zombie.m_player.transform.position);
         m_zombie.m_agent.speed = 2.5f;
 
     }
