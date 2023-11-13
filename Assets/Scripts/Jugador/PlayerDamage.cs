@@ -56,13 +56,13 @@ public class PlayerDamage : MonoBehaviour
         }*/
     }
 
-    private void OnTriggerEnter(Collider other)
+    /*private void OnTriggerEnter(Collider other)
     {
-        /*
+        
         if (other.CompareTag("DamageCollider"))
         {
             if(canGetDamage)
-            GetDamage(5);
+            GetDamage();
         }
 
         if (other.CompareTag("SafeSpace"))
@@ -72,8 +72,8 @@ public class PlayerDamage : MonoBehaviour
         if (other.CompareTag("ExitSafeSpace"))
         {
             gameObject.layer = 6;
-        }**/
-    }
+        }
+    }*/
 
     public void GetDamage()
     {

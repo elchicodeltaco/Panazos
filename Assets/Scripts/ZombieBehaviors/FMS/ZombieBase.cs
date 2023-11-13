@@ -13,6 +13,8 @@ public class ZombieBase : MonoBehaviour
     public Estado estadoChase;
     public Estado estadoAttack;
 
+    [Header("Sonidos")]
+
     [Header("Rangos de proximidad")]
     [SerializeField] private float m_alertRange;
     [SerializeField] private float m_attackRange;
@@ -39,6 +41,7 @@ public class ZombieBase : MonoBehaviour
     [HideInInspector] public NavMeshAgent m_agent;
     [HideInInspector] public Transform m_player;
     [HideInInspector] public Transform m_grenade;
+    
 
     private Animator animator;
 

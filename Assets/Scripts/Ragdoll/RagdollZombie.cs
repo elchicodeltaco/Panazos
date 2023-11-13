@@ -22,6 +22,11 @@ public class RagdollZombie : RagdollEnabler
     [SerializeField] private Collider[] collidersToDesable;
     private bool ragdollActive;
     private Quaternion rootBoneRotation;
+    [SerializeField] AudioClip zombieSonido;
+    [SerializeField] AudioClip zombieWanderSonido;
+
+
+
 
     public override void DisableAnimations()
     {
@@ -123,6 +128,22 @@ public class RagdollZombie : RagdollEnabler
         }
         return false;
     }
+    
+    private void activateSoundAttack()
+    {
+        SonidosEfecto.instance.EjecutarSonido(zombieSonido);
+    }
+    private void activateSoundWander()
+    {       
+        float random = Random.Range(0, 15);
+        if(random >= 14)
+        {
+            SonidosEfecto.instance.EjecutarSonido(zombieWanderSonido);
+
+        }
+
+    }
+
     public void DestroyZombie()
     {
         ParticleSystem particulas = Instantiate(MoridoParticula);

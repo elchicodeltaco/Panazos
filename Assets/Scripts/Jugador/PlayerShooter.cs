@@ -17,6 +17,9 @@ public class PlayerShooter : MonoBehaviour
     [SerializeField] private ParticleSystem dustLocal;
 
     private static PlayerShooter instancia;
+
+    [SerializeField] AudioClip disparoTostada;
+    [SerializeField] AudioClip disparoGranada;
     public static PlayerShooter GetInstancia()
     {
         return instancia;
@@ -87,6 +90,7 @@ public class PlayerShooter : MonoBehaviour
 
         if (toast)
         {
+            SonidosEfecto.instance.EjecutarSonido(disparoTostada);
             toast.tag = "ToastBase";
             //if (Input.GetButton("Fire3"))
             //{
@@ -115,6 +119,7 @@ public class PlayerShooter : MonoBehaviour
 
         if (grenade)
         {
+            SonidosEfecto.instance.EjecutarSonido(disparoGranada);
             float launchAngle = 45f; // Ángulo de inclinación en grados
             float horizontalSpeed = GrenadeForce; // Velocidad horizontal
             float verticalSpeed = horizontalSpeed * Mathf.Tan(launchAngle * Mathf.Deg2Rad); // Calcula la velocidad vertical

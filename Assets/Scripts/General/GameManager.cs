@@ -42,6 +42,7 @@ public class GameManager : MonoBehaviour
 
     private float scaleCanvas;
 
+
     [Header("Gameplay")]
     [SerializeField] private GameObject Spawners;
     public GameObject[] ThingsToDestroy;
@@ -123,6 +124,8 @@ public void CambiarDeEstadoEnJuego(EstadosDeJuego estado)
             GettingDamageUI();
         }
     }
+
+
 
     public void GettingDamageUI()
     {
