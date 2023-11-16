@@ -85,7 +85,6 @@ public class ZombieBase : MonoBehaviour
         {
             Collider[] collGr = Physics.OverlapSphere(transform.position, m_alertRange, m_grenadeMask);
             m_grenade = collGr[0].gameObject.GetComponent<Transform>();
-            Invoke("GrenadeNull", 3f);
         }
 
         animator.SetFloat("velocity",m_agent.velocity.magnitude);
@@ -103,9 +102,6 @@ public class ZombieBase : MonoBehaviour
         Gizmos.DrawWireSphere(transform.position, m_wanderRange);
     }
 
-    private void GrenadeNull()
-    {
-        m_grenade = null;
-    }
+
 
 }
