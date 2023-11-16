@@ -24,7 +24,7 @@ public class StateWander : Estado
     }
     public override void UpdateEstado()
     {
-        if(m_zombie._getAlertState)
+        if(m_zombie._getAlertState || m_zombie._getGrenadeState)
         {
             //m_zombie.m_agent.Stop();
             fsm.CambiarDeEstado(m_zombie.estadoChase);

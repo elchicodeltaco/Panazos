@@ -77,8 +77,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.02, y: 0.02, z: 0.07}
-  m_Center: {x: 0.00057902996, y: 0.0021041334, z: -0.0020257474}
+  m_Size: {x: 0.02, y: 0.027736535, z: 0.072717935}
+  m_Center: {x: 0.0005790298, y: 0.00016375836, z: -0.0017645782}
 --- !u!33 &4610566887275652933
 MeshFilter:
   m_ObjectHideFlags: 0

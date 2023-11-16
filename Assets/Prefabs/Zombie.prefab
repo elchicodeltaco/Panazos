@@ -500,8 +500,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d8ce9928080d78c4da6d2d09f7e89db1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_alertRange: 5
+  m_alertRange: 6.81
   m_attackRange: 0.92
+  m_grenadeRange: 0
   m_wanderRange: 4.57
   m_playersMask:
     serializedVersion: 2
@@ -527,7 +528,7 @@ MonoBehaviour:
   animator: {fileID: 8325207980215581904}
   ragdollRoot: {fileID: 8325207981863666837}
   rigidbodies: []
-  m_timeToWakeUp: 2
+  m_timeToWakeUp: 1
   m_launchAngle: 0.381
   m_multiplicationForce: 1100
   forceToRag: 5

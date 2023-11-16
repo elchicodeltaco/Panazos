@@ -166,22 +166,22 @@ public class RagdollZombie : RagdollEnabler
             Destroy(gameObject);
         }
     }
-    private void OnTriggerStay(Collider other)
-    {
-        if (other.CompareTag("ZombieScript"))
-        {
-            GetComponent<NavMeshAgent>().enabled = false;
-            GetComponent<EnemyBehavior>().enabled = false;
-        }
-    }
-    private void OnTriggerExit(Collider other)
-    {
-        if (other.CompareTag("ZombieScript"))
-        {
-            GetComponent<NavMeshAgent>().enabled = true;
-            GetComponent<EnemyBehavior>().enabled = true;
-        }
-    }
+    //private void OnTriggerStay(Collider other)
+    //{
+    //    if (other.CompareTag("ZombieScript"))
+    //    {
+    //        GetComponent<NavMeshAgent>().enabled = false;
+    //        GetComponent<EnemyBehavior>().enabled = false;
+    //    }
+    //}
+    //private void OnTriggerExit(Collider other)
+    //{
+    //    if (other.CompareTag("ZombieScript"))
+    //    {
+    //        GetComponent<NavMeshAgent>().enabled = true;
+    //        GetComponent<EnemyBehavior>().enabled = true;
+    //    }
+    //}
     private void OnCollisionEnter(Collision collision)
     {
         

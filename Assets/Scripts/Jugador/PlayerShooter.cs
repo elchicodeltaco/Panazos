@@ -17,9 +17,13 @@ public class PlayerShooter : MonoBehaviour
     [SerializeField] private ParticleSystem dustLocal;
 
     private static PlayerShooter instancia;
+    private LineRenderer linea;
 
     [SerializeField] AudioClip disparoTostada;
     [SerializeField] AudioClip disparoGranada;
+    public float timeToAim;
+    private float timeToAimConst;
+
     public static PlayerShooter GetInstancia()
     {
         return instancia;
@@ -42,13 +46,28 @@ public class PlayerShooter : MonoBehaviour
     {
         //GameManager.GetInstancia().UpdateAmmoOnScreen(currentAmmo);
         pool = GetComponent<ObjectPooling>();
+        linea = GetComponent<LineRenderer>();
+        linea.enabled = false;
+        timeToAimConst = timeToAim;
     }
 
     // Update is called once per frame
     void Update()
     {
 
-        if (Input.GetButtonDown("Fire1"))
+        if (Input.GetButton("Fire1"))
+        {
+            timeToAim -= Time.deltaTime;
+            if (timeToAim < 0)
+            {
+                GetComponent<PlayerController>().correr = false;
+                linea.enabled = true;
+            }
+
+        }
+
+
+        if (Input.GetButtonUp("Fire1"))
         {
             //SFX
 
@@ -65,6 +84,9 @@ public class PlayerShooter : MonoBehaviour
             {
                 dustLocal.Play();
             }
+            linea.enabled = false;
+            GetComponent<PlayerController>().correr = true;
+            timeToAim = timeToAimConst;
         }
         /*if (Input.GetButton("Fire2"))
         {
@@ -135,5 +157,6 @@ public class PlayerShooter : MonoBehaviour
             //GameManager.GetInstancia().UpdateAmmoOnScreen(currentAmmo);
         }
     }
+
 
 }
