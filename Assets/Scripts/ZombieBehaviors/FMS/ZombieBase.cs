@@ -71,7 +71,7 @@ public class ZombieBase : MonoBehaviour
     {
         maquinaEstados.Update();
         m_alertState = Physics.CheckSphere(transform.position, m_alertRange, m_playersMask);
-        m_chaseGrenadeState = Physics.CheckSphere(transform.position, m_alertRange, m_grenadeMask);
+        m_chaseGrenadeState = Physics.CheckSphere(transform.position, m_grenadeRange, m_grenadeMask);
         m_attackState = Physics.CheckSphere(transform.position + transform.forward * 0.5f, m_attackRange, m_playersMask);// || Physics.CheckSphere(transform.position, m_alertRange, m_grenadeMask);
 
         if(m_alertState && m_player == null)
@@ -83,7 +83,7 @@ public class ZombieBase : MonoBehaviour
         }
         if (m_chaseGrenadeState && m_grenade == null)
         {
-            Collider[] collGr = Physics.OverlapSphere(transform.position, m_alertRange, m_grenadeMask);
+            Collider[] collGr = Physics.OverlapSphere(transform.position, m_grenadeRange, m_grenadeMask);
             m_grenade = collGr[0].gameObject.GetComponent<Transform>();
         }
 
@@ -100,6 +100,8 @@ public class ZombieBase : MonoBehaviour
         Gizmos.DrawWireSphere(transform.position + transform.forward * 0.5f, m_attackRange);
         Gizmos.color = Color.yellow;
         Gizmos.DrawWireSphere(transform.position, m_wanderRange);
+        Gizmos.color = Color.green;
+        Gizmos.DrawWireSphere(transform.position, m_grenadeRange);
     }
 
 

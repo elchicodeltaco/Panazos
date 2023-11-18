@@ -104,7 +104,7 @@ public class RagdollZombie : RagdollEnabler
         foreach (Rigidbody rb in rigidbodies)
         {
             //Vector3 temp = new Vector3(force.x, force.y + 20, force.z);
-            rb.AddForce(direccion * m_multiplicationForce);
+            rb.AddForce(direccion.normalized * m_multiplicationForce);
         }
     }
     public void AddExplosionForceToBones(float force, Vector3 position,float radius)
@@ -158,6 +158,7 @@ public class RagdollZombie : RagdollEnabler
         if (other.CompareTag("ToastBase"))
         {
 
+        if(other.GetComponent<Rigidbody>().velocity.magnitude > forceToRag)
             AddForceToBones(other.transform);
         }
         if (other.CompareTag("Blender") && ragdollActive)

@@ -502,8 +502,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_alertRange: 6.81
   m_attackRange: 0.92
-  m_grenadeRange: 0
-  m_wanderRange: 4.57
+  m_grenadeRange: 6.81
+  m_wanderRange: 4.5
   m_playersMask:
     serializedVersion: 2
     m_Bits: 128
@@ -529,8 +529,8 @@ MonoBehaviour:
   ragdollRoot: {fileID: 8325207981863666837}
   rigidbodies: []
   m_timeToWakeUp: 1
-  m_launchAngle: 0.381
-  m_multiplicationForce: 1100
+  m_launchAngle: 0.42
+  m_multiplicationForce: 1300
   forceToRag: 5
   rootBone: {fileID: 8325207981863666837}
   m_rootBonePosition: {fileID: 8846886042053712385}
