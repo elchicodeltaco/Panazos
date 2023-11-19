@@ -7947,19 +7947,6 @@ LineRenderer:
     generateLightingData: 0
   m_UseWorldSpace: 1
   m_Loop: 0
---- !u!114 &1389775163
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1389775156}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: edde424999f03f542b266c737f147160, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  muzzle: {fileID: 2040211795}
 --- !u!1 &1392805848
 GameObject:
   m_ObjectHideFlags: 0
@@ -13040,11 +13027,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6dd11e452792fc46843c4daa169b3dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!4 &2040211795 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 7236415963272210117, guid: 616385cb826fd10469d2f7be0c60d232, type: 3}
-  m_PrefabInstance: {fileID: 7236415962792863980}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2042264309
 GameObject:
   m_ObjectHideFlags: 0
@@ -23277,7 +23259,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7236415962525535993, guid: 616385cb826fd10469d2f7be0c60d232, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 80.4
+      value: 8.4
       objectReference: {fileID: 0}
     - target: {fileID: 7236415962525535993, guid: 616385cb826fd10469d2f7be0c60d232, type: 3}
       propertyPath: m_LocalPosition.y
@@ -23285,7 +23267,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7236415962525535993, guid: 616385cb826fd10469d2f7be0c60d232, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.8
+      value: 1.4
       objectReference: {fileID: 0}
     - target: {fileID: 7236415962525535993, guid: 616385cb826fd10469d2f7be0c60d232, type: 3}
       propertyPath: m_LocalRotation.w
