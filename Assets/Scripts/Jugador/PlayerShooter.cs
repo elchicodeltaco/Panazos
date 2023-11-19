@@ -24,6 +24,7 @@ public class PlayerShooter : MonoBehaviour
     public float timeToAim;
     private float timeToAimConst;
 
+
     public static PlayerShooter GetInstancia()
     {
         return instancia;
@@ -60,7 +61,7 @@ public class PlayerShooter : MonoBehaviour
             timeToAim -= Time.deltaTime;
             if (timeToAim < 0)
             {
-                GetComponent<PlayerController>().correr = false;
+                GetComponent<PlayerController>().caminar = true;
                 linea.enabled = true;
             }
 
@@ -85,7 +86,7 @@ public class PlayerShooter : MonoBehaviour
                 dustLocal.Play();
             }
             linea.enabled = false;
-            GetComponent<PlayerController>().correr = true;
+            GetComponent<PlayerController>().caminar = false;
             timeToAim = timeToAimConst;
         }
         /*if (Input.GetButton("Fire2"))
@@ -131,7 +132,7 @@ public class PlayerShooter : MonoBehaviour
             toast.GetComponent<Rigidbody>().AddForce(transform.rotation * Vector3.forward * force * 100);
             
 
-            currentAmmoTostadora--;
+            //currentAmmoTostadora--;
             //GameManager.GetInstancia().UpdateAmmoOnScreen(currentAmmo);
         }
     }

@@ -6,6 +6,7 @@ public class ExplotarCosas : MonoBehaviour
 {
     public GameObject[] cosasAExplotar;
     public ParticleSystem explosiones;
+    public AudioClip explosionesAudio;
     [SerializeField]private float seg = 3;
 
     public void Explotar()
@@ -28,6 +29,7 @@ public class ExplotarCosas : MonoBehaviour
             yield return new WaitForSeconds(interval);
             cosasAExplotar[i].SetActive(false);
             interval *= 1.1f;
+            SonidosEfecto.instance.EjecutarSonido(explosionesAudio);
         }
     }
 }

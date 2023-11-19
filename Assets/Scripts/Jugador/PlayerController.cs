@@ -31,7 +31,7 @@ public class PlayerController : MonoBehaviour
     private Vector3 m_input;
     private float varSpeed;
 
-    public bool correr = true;
+    public bool caminar = false;
 
     // Start is called before the first frame update
     void Start()
@@ -67,7 +67,7 @@ public class PlayerController : MonoBehaviour
 
         varSpeed = speed;
 
-        if (Input.GetButton("Fire3") && correr)
+        if (Input.GetButton("Fire3") || caminar)
         {
             varSpeed /= 2;
         }

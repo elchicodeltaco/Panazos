@@ -210,6 +210,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Particulas: {fileID: 6404046521989479632}
+  m_Puerta: {fileID: 0}
+  m_zombieMuerto: {fileID: 8300000, guid: 697f9e09ee2f906489a8d50d3b75b5f7, type: 3}
 --- !u!1001 &7124567119980907439
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -545,7 +545,11 @@ MonoBehaviour:
   - {fileID: 8325207980215581909}
   - {fileID: 8325207980215581908}
   zombieSonido: {fileID: 8300000, guid: 3b622ff854eb1ad449593c088ea4f7b7, type: 3}
-  zombieWanderSonido: {fileID: 8300000, guid: 9b7016ce68287cf4e951071e574e5ce0, type: 3}
+  zombieWanderSonido:
+  - {fileID: 8300000, guid: 9b7016ce68287cf4e951071e574e5ce0, type: 3}
+  - {fileID: 8300000, guid: 0a5dff4cd7eec1849a863be68cbec53b, type: 3}
+  - {fileID: 8300000, guid: 3ada6d1eae0bba54fa74d6fa362bd7c0, type: 3}
+  - {fileID: 8300000, guid: 657a78bb16afeeb4e805bd92e41fb096, type: 3}
 --- !u!1 &8325207980322584891
 GameObject:
   m_ObjectHideFlags: 0
