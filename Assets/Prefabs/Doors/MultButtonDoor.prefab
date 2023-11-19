@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1206475565956298579}
   - component: {fileID: 1206475565956298573}
   - component: {fileID: 1206475565956298578}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -95,7 +95,7 @@ GameObject:
   - component: {fileID: 1206475566008290054}
   - component: {fileID: 1206475566008290055}
   - component: {fileID: 1206475566008290052}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -496,6 +496,7 @@ GameObject:
   - component: {fileID: 1206475566731065502}
   - component: {fileID: 1206475566731065503}
   - component: {fileID: 4892558552494476210}
+  - component: {fileID: 4765642338257032150}
   m_Layer: 0
   m_Name: DoorTwo
   m_TagString: Untagged
@@ -597,6 +598,19 @@ NavMeshObstacle:
   m_CarveOnlyStationary: 1
   m_Center: {x: 0, y: 0, z: 0}
   m_TimeToStationary: 0.5
+--- !u!114 &4765642338257032150
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1206475566731065501}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6dd11e452792fc46843c4daa169b3dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_TransparentMat: {fileID: 2100000, guid: 9f4f14f8e08896448a2069af9d9525b7, type: 2}
 --- !u!1 &1206475566975798166
 GameObject:
   m_ObjectHideFlags: 0
@@ -609,7 +623,7 @@ GameObject:
   - component: {fileID: 1206475566975798162}
   - component: {fileID: 1206475566975798163}
   - component: {fileID: 1206475566975798160}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -705,7 +719,7 @@ GameObject:
   - component: {fileID: 1206475566995987718}
   - component: {fileID: 1206475566995987712}
   - component: {fileID: 1206475566995987713}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -823,7 +837,7 @@ GameObject:
   - component: {fileID: 1206475567405186731}
   - component: {fileID: 1206475567405186725}
   - component: {fileID: 1206475567405186730}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1041,7 +1055,7 @@ GameObject:
   - component: {fileID: 1206475567585926286}
   - component: {fileID: 1206475567585926287}
   - component: {fileID: 1206475567585926284}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}

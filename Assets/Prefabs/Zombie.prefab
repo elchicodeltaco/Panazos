@@ -500,9 +500,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d8ce9928080d78c4da6d2d09f7e89db1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_alertRange: 5
+  m_alertRange: 6.81
   m_attackRange: 0.92
-  m_wanderRange: 4.57
+  m_grenadeRange: 6.81
+  m_wanderRange: 4.5
   m_playersMask:
     serializedVersion: 2
     m_Bits: 128
@@ -527,9 +528,9 @@ MonoBehaviour:
   animator: {fileID: 8325207980215581904}
   ragdollRoot: {fileID: 8325207981863666837}
   rigidbodies: []
-  m_timeToWakeUp: 2
-  m_launchAngle: 0.381
-  m_multiplicationForce: 1100
+  m_timeToWakeUp: 1
+  m_launchAngle: 0.42
+  m_multiplicationForce: 1300
   forceToRag: 5
   rootBone: {fileID: 8325207981863666837}
   m_rootBonePosition: {fileID: 8846886042053712385}
@@ -544,7 +545,11 @@ MonoBehaviour:
   - {fileID: 8325207980215581909}
   - {fileID: 8325207980215581908}
   zombieSonido: {fileID: 8300000, guid: 3b622ff854eb1ad449593c088ea4f7b7, type: 3}
-  zombieWanderSonido: {fileID: 8300000, guid: 9b7016ce68287cf4e951071e574e5ce0, type: 3}
+  zombieWanderSonido:
+  - {fileID: 8300000, guid: 9b7016ce68287cf4e951071e574e5ce0, type: 3}
+  - {fileID: 8300000, guid: 0a5dff4cd7eec1849a863be68cbec53b, type: 3}
+  - {fileID: 8300000, guid: 3ada6d1eae0bba54fa74d6fa362bd7c0, type: 3}
+  - {fileID: 8300000, guid: 657a78bb16afeeb4e805bd92e41fb096, type: 3}
 --- !u!1 &8325207980322584891
 GameObject:
   m_ObjectHideFlags: 0

@@ -31,21 +31,19 @@ public class PlayerController : MonoBehaviour
     private Vector3 m_input;
     private float varSpeed;
 
+    public bool caminar = false;
+
     // Start is called before the first frame update
     void Start()
     {
         controller = GetComponent<CharacterController>();
         animator = GetComponentInChildren<Animator>();
-        
     }
 
     // Update is called once per frame
     void Update()
     {
         GetInput();
-       
-
-        
         camFollower.position = Vector3.Lerp(camFollower.position, transform.position, camSpeed * Time.deltaTime);
     }
 
@@ -63,15 +61,15 @@ public class PlayerController : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            SceneManager.LoadScene(0);
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
         isGrounded = Physics.CheckSphere(groundCkeck.position, groundDistance, groundMask);
 
         varSpeed = speed;
 
-        if (Input.GetButton("Fire3"))
+        if (Input.GetButton("Fire3") || caminar)
         {
-            varSpeed *= 2;
+            varSpeed /= 2;
         }
     }
 

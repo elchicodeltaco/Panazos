@@ -20,7 +20,7 @@ public class StateChase : Estado
     public override void UpdateEstado()
     {
         //checar la esfera
-        if (!fsm.mono.GetComponent<ZombieBase>()._getAlertState)
+        if (!fsm.mono.GetComponent<ZombieBase>()._getAlertState && !fsm.mono.GetComponent<ZombieBase>()._getGrenadeState)
         {
             //m_zombie.m_agent.Stop();
             fsm.CambiarDeEstado(m_zombie.estadoWander);
@@ -37,11 +37,21 @@ public class StateChase : Estado
         //    agente.SetDestination(granada.transform.position);
 
         //}
-        Debug.DrawRay(m_zombie.m_player.transform.position, Vector3.up, Color.blue, 1.0f); //so you can see with gizmos
-
-        m_zombie.m_agent.SetDestination(m_zombie.m_grenade != null ? m_zombie.m_grenade.transform.position : m_zombie.m_player.transform.position);
+        //Debug.DrawRay(m_zombie.m_player.transform.position, Vector3.up, Color.blue, 1.0f); //so you can see with gizmos
+        if (m_zombie._getGrenadeState == true)
+        {
+            m_zombie.m_agent.SetDestination(m_zombie.m_grenade.transform.position);
+        }
+        else if (m_zombie._getAlertState == true)
+        {
+            m_zombie.m_agent.SetDestination(m_zombie.m_player.transform.position);
+        }
+        if (m_zombie._getAlertState == false && m_zombie._getGrenadeState == false)
+        {
+            m_zombie.m_player = null;
+            m_zombie.m_grenade = null;
+        }
         m_zombie.m_agent.speed = 2.5f;
-
     }
     public override void Exit()
     {

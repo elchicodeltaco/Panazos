@@ -23,7 +23,8 @@ public class RagdollZombie : RagdollEnabler
     private bool ragdollActive;
     private Quaternion rootBoneRotation;
     [SerializeField] AudioClip zombieSonido;
-    [SerializeField] AudioClip zombieWanderSonido;
+    [SerializeField] AudioClip golpe;
+    [SerializeField] List<AudioClip> zombieWanderSonido = new List<AudioClip>();
 
 
 
@@ -104,7 +105,7 @@ public class RagdollZombie : RagdollEnabler
         foreach (Rigidbody rb in rigidbodies)
         {
             //Vector3 temp = new Vector3(force.x, force.y + 20, force.z);
-            rb.AddForce(direccion * m_multiplicationForce);
+            rb.AddForce(direccion.normalized * m_multiplicationForce);
         }
     }
     public void AddExplosionForceToBones(float force, Vector3 position,float radius)
@@ -119,7 +120,6 @@ public class RagdollZombie : RagdollEnabler
     }
     private bool CheckGround()
     {
-
         //if (Physics.Raycast(rootBone.position, Vector3.down * 0.2f, out RaycastHit hit, m_groundLayer))
         Collider[] col = Physics.OverlapSphere(rootBone.position, 0.2f, m_groundLayer);
         if (col.Length>0)
@@ -131,14 +131,15 @@ public class RagdollZombie : RagdollEnabler
     
     private void activateSoundAttack()
     {
-        SonidosEfecto.instance.EjecutarSonido(zombieSonido);
+        //SonidosEfecto.instance.EjecutarSonido(zombieSonido);
     }
     private void activateSoundWander()
-    {       
-        float random = Random.Range(0, 15);
-        if(random >= 14)
+    {
+        int rand = Random.Range(0, zombieWanderSonido.Count);
+        float random = Random.Range(0, 100);
+        if(random == 14 || random ==90)
         {
-            SonidosEfecto.instance.EjecutarSonido(zombieWanderSonido);
+            SonidosEfecto.instance.EjecutarSonido(zombieWanderSonido[rand]);
 
         }
 
@@ -157,8 +158,11 @@ public class RagdollZombie : RagdollEnabler
     {
         if (other.CompareTag("ToastBase"))
         {
-
-            AddForceToBones(other.transform);
+            if (other.GetComponent<Rigidbody>().velocity.magnitude > forceToRag)
+            {
+                AddForceToBones(other.transform);
+                SonidosEfecto.instance.EjecutarSonido(golpe);
+            }            
         }
         if (other.CompareTag("Blender") && ragdollActive)
         {
@@ -166,22 +170,22 @@ public class RagdollZombie : RagdollEnabler
             Destroy(gameObject);
         }
     }
-    private void OnTriggerStay(Collider other)
-    {
-        if (other.CompareTag("ZombieScript"))
-        {
-            GetComponent<NavMeshAgent>().enabled = false;
-            GetComponent<EnemyBehavior>().enabled = false;
-        }
-    }
-    private void OnTriggerExit(Collider other)
-    {
-        if (other.CompareTag("ZombieScript"))
-        {
-            GetComponent<NavMeshAgent>().enabled = true;
-            GetComponent<EnemyBehavior>().enabled = true;
-        }
-    }
+    //private void OnTriggerStay(Collider other)
+    //{
+    //    if (other.CompareTag("ZombieScript"))
+    //    {
+    //        GetComponent<NavMeshAgent>().enabled = false;
+    //        GetComponent<EnemyBehavior>().enabled = false;
+    //    }
+    //}
+    //private void OnTriggerExit(Collider other)
+    //{
+    //    if (other.CompareTag("ZombieScript"))
+    //    {
+    //        GetComponent<NavMeshAgent>().enabled = true;
+    //        GetComponent<EnemyBehavior>().enabled = true;
+    //    }
+    //}
     private void OnCollisionEnter(Collision collision)
     {
         
