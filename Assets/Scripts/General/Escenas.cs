@@ -7,7 +7,7 @@ public class Escenas : MonoBehaviour
 {
     private void Awake()
     {
-        Application.targetFrameRate = 50;
+        Application.targetFrameRate = 60;
         Cursor.visible = true;
     }
     public void CargarEscenaString(string nombre)

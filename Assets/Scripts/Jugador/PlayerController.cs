@@ -63,6 +63,16 @@ public class PlayerController : MonoBehaviour
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
+        if (Input.GetKeyDown(KeyCode.Alpha2))
+        {
+            SceneManager.LoadScene(3);
+
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha3))
+        {
+            SceneManager.LoadScene(4);
+
+        }
         isGrounded = Physics.CheckSphere(groundCkeck.position, groundDistance, groundMask);
 
         varSpeed = speed;
